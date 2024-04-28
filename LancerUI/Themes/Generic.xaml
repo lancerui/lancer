@@ -1,0 +1,10 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:LancerUI">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/LancerUI;component/Themes/Windows/LUWindow.xaml" />
+        <ResourceDictionary Source="/LancerUI;component/Themes/Base/Icon.xaml" />
+        <ResourceDictionary Source="/LancerUI;component/Themes/Buttons/IconButton.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>
