@@ -170,10 +170,11 @@
                                               WindowChrome.IsHitTestVisibleInChrome="True"
                                               Panel.ZIndex="3">
                                             <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{DynamicResource Lang_MinizeSysBtn}"></TextBlock>
                                                 <!--最小化-->
                                                 <Button 
                                                     x:Name="MinizeButton"
-                                                    ToolTip="最小化" 
+                                                    ToolTip="{DynamicResource Lang_MinizeSysBtn}" 
                                                     Style="{StaticResource WindowSystemButton}"
                                                     Command="{x:Static w:LUWindowCommands.MinimizeWindowCommand}"
                                                     Visibility="{TemplateBinding MinimizeVisibility}">
@@ -183,7 +184,7 @@
                                                 <!--最大化-->
                                                 <Button
                                                     x:Name="MaximizeButton"
-                                                    ToolTip="最大化" 
+                                                    ToolTip="{DynamicResource Lang_MaximizeSysBtn}" 
                                                     Style="{StaticResource WindowSystemButton}"
                                                     Command="{x:Static w:LUWindowCommands.MaximizeWindowCommand}"
                                                     Visibility="{TemplateBinding MaximizeVisibility}">
@@ -193,7 +194,7 @@
                                                 <!--还原-->
                                                 <Button
                                                     x:Name="RestoreButton"
-                                                    ToolTip="向下还原" 
+                                                    ToolTip="{DynamicResource Lang_RestoreSysBtn}" 
                                                     Style="{StaticResource WindowSystemButton}"
                                                     Command="{x:Static w:LUWindowCommands.RestoreWindowCommand}"
                                                     Visibility="Collapsed">
@@ -202,7 +203,7 @@
                                                 <!--关闭-->
                                                 <Button
                                                     x:Name="CloseButton"
-                                                    ToolTip="关闭" 
+                                                    ToolTip="{DynamicResource Lang_CloseSysBtn}" 
                                                     Style="{StaticResource WindowSystemCloseButton}"
                                                     Command="{x:Static w:LUWindowCommands.CloseWindowCommand}"
                                                     Visibility="{TemplateBinding CloseVisibility}">

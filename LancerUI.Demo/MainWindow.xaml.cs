@@ -1,4 +1,5 @@
 ﻿using LancerUI.Controls.Windows;
+using LancerUI.Language;
 using LancerUI.Utils;
 using System;
 using System.Collections.Generic;
@@ -26,7 +27,10 @@ namespace LancerUI.Demo
         {
             InitializeComponent();
 
+            //  设置主题色
             ThemeManager.SetWindowsThemeColor();
+            //  设置语言
+            LanguageManager.SetLanguage();
         }
     }
 }
