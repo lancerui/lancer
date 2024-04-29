@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LancerUI.Demo"
         xmlns:lu="https://github.com/lancerui/lancer"
-        xmlns:Base="clr-namespace:LancerUI.Controls.Base;assembly=LancerUI" x:Class="LancerUI.Demo.MainWindow"
+        xmlns:Base="clr-namespace:LancerUI.Controls.Base;assembly=LancerUI" xmlns:Navigation="clr-namespace:LancerUI.Controls.Navigation;assembly=LancerUI" x:Class="LancerUI.Demo.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <lu:LUWindow.TitleBarMainContent>
@@ -14,9 +14,19 @@
         </Grid>
     </lu:LUWindow.TitleBarMainContent>
     <lu:LUWindow.TitleBarSubContent>
-        <Button Height="30" Width="30" Margin="10,0,0,0">+</Button>
+        <Button Height="30" Width="30" Margin="10,0,0,0" Content="+"/>
     </lu:LUWindow.TitleBarSubContent>
     <Grid>
         <Button Content="Button" HorizontalAlignment="Left" Margin="109,104,0,0" VerticalAlignment="Top"/>
+        <!--<Navigation:Navigation HorizontalAlignment="Left" Margin="44,74,0,0" VerticalAlignment="Top" ItemsSource="{Binding MenuItems}" SelectedIndex="2" DisplayMemberPath="Title">
+        </Navigation:Navigation>-->
+        
+        <Navigation:Navigation SelectedIndex="3" HorizontalAlignment="Left" VerticalAlignment="Top" >
+
+            <Navigation:NavigationItem Title="A" Icon="Home" SelectedIcon="HomeSolid" Command="{Binding HomeCommand}">
+            </Navigation:NavigationItem>
+            <Navigation:NavigationItem Title="B" Icon="Cloud" SelectedIcon="CloudSearch" >
+            </Navigation:NavigationItem>
+        </Navigation:Navigation>
     </Grid>
 </lu:LUWindow>

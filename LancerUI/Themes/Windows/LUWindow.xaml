@@ -127,12 +127,10 @@
                                 >
                             <AdornerDecorator>
                                 <Grid x:Name="WindowContent">
-
-                                    <!--<Grid.RowDefinitions>
+                                    <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto"></RowDefinition>
                                         <RowDefinition Height="*"></RowDefinition>
-
-                                    </Grid.RowDefinitions>-->
+                                    </Grid.RowDefinitions>
 
                                     <!--标题栏-->
                                     <Grid 
@@ -170,7 +168,6 @@
                                               WindowChrome.IsHitTestVisibleInChrome="True"
                                               Panel.ZIndex="3">
                                             <StackPanel Orientation="Horizontal">
-                                                <TextBlock Text="{DynamicResource Lang_MinizeSysBtn}"></TextBlock>
                                                 <!--最小化-->
                                                 <Button 
                                                     x:Name="MinizeButton"

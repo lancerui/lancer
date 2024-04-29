@@ -6,5 +6,7 @@
         <ResourceDictionary Source="/LancerUI;component/Themes/Windows/LUWindow.xaml" />
         <ResourceDictionary Source="/LancerUI;component/Themes/Base/Icon.xaml" />
         <ResourceDictionary Source="/LancerUI;component/Themes/Buttons/IconButton.xaml" />
+        <ResourceDictionary Source="/LancerUI;component/Themes/Navigation/Navigation.xaml" />
+        <ResourceDictionary Source="/LancerUI;component/Themes/Navigation/NavigationItem.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
