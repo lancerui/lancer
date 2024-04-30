@@ -1,9 +1,17 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <!--导航栏-->
+    <!--鼠标经过背景色-->
+    <Color x:Key="NavHoverBackgroundColor">#eaeaea</Color>
+
     <Color x:Key="NavSelectedColor">#ffffff</Color>
     <SolidColorBrush x:Key="NavSelectedBrush" Color="{StaticResource NavSelectedColor}" />
 
     <Color x:Key="NavUnselectedTextColor">#5c5c5c</Color>
     <SolidColorBrush x:Key="NavUnselectedTextBrush" Color="{StaticResource NavUnselectedTextColor}" />
+
+    <!--前景色-->
+    <SolidColorBrush x:Key="NavForegroundBrush" Color="#7a7b7f" />
+    <!--鼠标经过前景色-->
+    <SolidColorBrush x:Key="NavHoverForegroundBrush" Color="#1f2020" />
 </ResourceDictionary>

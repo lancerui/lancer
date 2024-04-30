@@ -6,12 +6,7 @@
     <Color x:Key="ThemeColor">#3d3d3d</Color>
     <!--主题颜色笔刷-->
     <SolidColorBrush x:Key="ThemeBrush" Color="{StaticResource ThemeColor}" />
-    <!--鼠标经过背景颜色-->
-    <Color x:Key="HoverBackgroundColor">#eaeaea</Color>
-    <!--【通用笔刷】-->
-    <!---【！目前仅导航栏组件使用，需要记得替换到单独文件】鼠标经过背景颜色-->
-    <SolidColorBrush x:Key="HoverBackgroundBrush" Color="{StaticResource HoverBackgroundColor}" />
-
+    
     <!--危险色-->
     <Color x:Key="DangerColor">#f51837</Color>
     <SolidColorBrush x:Key="DangerBrush" Color="{StaticResource DangerColor}" />

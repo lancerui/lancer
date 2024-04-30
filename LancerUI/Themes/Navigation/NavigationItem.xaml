@@ -22,7 +22,7 @@ Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
 Storyboard.TargetName="Border"
 >
                                             <ColorAnimationUsingKeyFrames.KeyFrames>
-                                                <LinearColorKeyFrame Value="{DynamicResource HoverBackgroundColor}" KeyTime="0:0:0" />
+                                                <LinearColorKeyFrame Value="{DynamicResource NavHoverBackgroundColor}" KeyTime="0:0:0" />
                                             </ColorAnimationUsingKeyFrames.KeyFrames>
                                         </ColorAnimationUsingKeyFrames>
 
@@ -41,7 +41,7 @@ Storyboard.TargetName="Border"
                                 </base:Icon.RenderTransform>
                             </base:Icon>
                             <!--标题-->
-                            <TextBlock x:Name="Title" RenderOptions.EdgeMode="Aliased" Text="{TemplateBinding Title}" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Center"  FontSize="10" Foreground="{DynamicResource NavUnselectedTextBrush}" Margin="0,5,0,0"/>
+                            <TextBlock x:Name="Title" RenderOptions.EdgeMode="Aliased" Text="{TemplateBinding Title}" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Center"  FontSize="10" Foreground="{DynamicResource NavForegroundBrush}" Margin="0,5,0,0"/>
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
@@ -81,6 +81,10 @@ Storyboard.TargetProperty="(base:Icon.RenderTransform).Children[0].(TranslateTra
                             <Setter TargetName="Title" Property="Visibility" Value="Collapsed"/>
                             <Setter TargetName="Border" Property="Background" Value="{DynamicResource NavSelectedBrush}"/>
                             <Setter TargetName="Icon" Property="Symbol" Value="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:NavigationItem}}, Path=SelectedIcon}"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Title" Property="Foreground" Value="{DynamicResource NavHoverForegroundBrush}"/>
+
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
