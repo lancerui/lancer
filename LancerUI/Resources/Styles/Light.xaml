@@ -16,9 +16,14 @@
     <!---鼠标经过背景颜色-->
     <SolidColorBrush x:Key="HoverBackgroundBrush" Color="{StaticResource HoverBackgroundColor}" />
     <!--标准背景颜色-->
-    <SolidColorBrush x:Key="StandardBackgroundBrush" Color="#ffffff" />
+    <SolidColorBrush x:Key="StandardBackgroundBrush" Color="#fffeff" />
     <SolidColorBrush x:Key="StandardBackgroundBrush2" Color="#ffffff" />
 
+    <!--【输入组件】-->
+    
+    <!--输入控件边框颜色-->
+    <SolidColorBrush x:Key="InputControlBorderBrush" Color="#eeeeee"/>
+    
     <!--【窗口】-->
 
     <!--窗口边框颜色-->

@@ -6,7 +6,12 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
+    <ApplicationIcon>ICON V1 CIRCLE.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="ICON V1 CIRCLE.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\LancerUI\LancerUI.csproj" />

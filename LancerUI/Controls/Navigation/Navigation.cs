@@ -232,7 +232,6 @@ namespace LancerUI.Controls.Navigation
             transformGroup.Children.Add(new TranslateTransform(0, activeBlockTTF.Y));
             transformGroup.Children.Add(new ScaleTransform(1, 1, 0.5, 0.5));
             _activeBlock.RenderTransform = transformGroup;
-
             _storyboard.Begin();
             _isAnimating = true;
         }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LancerUI.Demo"
         xmlns:lu="https://github.com/lancerui/lancer"
-        xmlns:Base="clr-namespace:LancerUI.Controls.Base;assembly=LancerUI" xmlns:Navigation="clr-namespace:LancerUI.Controls.Navigation;assembly=LancerUI" x:Class="LancerUI.Demo.MainWindow"
+        xmlns:Base="clr-namespace:LancerUI.Controls.Base;assembly=LancerUI" xmlns:Navigation="clr-namespace:LancerUI.Controls.Navigation;assembly=LancerUI" xmlns:Buttons="clr-namespace:LancerUI.Controls.Buttons;assembly=LancerUI" x:Class="LancerUI.Demo.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <lu:LUWindow.TitleBarMainContent>
@@ -16,17 +16,71 @@
     <lu:LUWindow.TitleBarSubContent>
         <Button Height="30" Width="30" Margin="10,0,0,0" Content="+"/>
     </lu:LUWindow.TitleBarSubContent>
-    <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="109,104,0,0" VerticalAlignment="Top"/>
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
         <!--<Navigation:Navigation HorizontalAlignment="Left" Margin="44,74,0,0" VerticalAlignment="Top" ItemsSource="{Binding MenuItems}" SelectedIndex="2" DisplayMemberPath="Title">
         </Navigation:Navigation>-->
-        
+
         <Navigation:Navigation SelectedIndex="3" HorizontalAlignment="Left" VerticalAlignment="Top" >
 
-            <Navigation:NavigationItem Title="A" Icon="Home" SelectedIcon="HomeSolid" Command="{Binding HomeCommand}">
-            </Navigation:NavigationItem>
-            <Navigation:NavigationItem Title="B" Icon="Cloud" SelectedIcon="CloudSearch" >
-            </Navigation:NavigationItem>
+            <Navigation:NavigationItem Title="A" Icon="Home" SelectedIcon="HomeFilled" Command="{Binding HomeCommand}"/>
+            <Navigation:NavigationItem Title="B" Icon="Games" SelectedIcon="GamesFilled" />
         </Navigation:Navigation>
+        <Grid Grid.Column="1" Background="White">
+            <TabControl>
+                <TabItem Header="按钮 Button">
+                    <ScrollViewer>
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel  HorizontalAlignment="Left" Margin="10">
+
+                                <TextBlock Text="Normal"/>
+
+                                <Buttons:LUButton Content="Default" Margin="10" Command="{Binding HomeCommand}"/>
+                                <Buttons:LUButton Appearance="Primary" Content="Primary" Margin="10">
+                                </Buttons:LUButton>
+                                <Buttons:LUButton Content="Danger" Appearance="Danger" Margin="10"/>
+                                <Buttons:LUButton Content="Link" Appearance="Link" Margin="10"/>
+                                <Buttons:LUButton Content="Subtle" Appearance="Subtle" Margin="10"/>
+                                <Buttons:LUButton Content="Subtle" Icon="Games" Appearance="Subtle" Margin="10"/>
+                                <Buttons:LUButton Content="Icon Button" Icon="Cloud" Margin="10"/>
+                                <Buttons:LUButton Content="Icon Size" Icon="Delete" IconSize="20" Margin="10"/>
+                                <Buttons:LUButton Content="Position" Icon="Cloud" IconPosition="Right" Margin="10"/>
+                                <Buttons:LUButton Content="Loadding" Icon="Cloud" IsLoading="True" Margin="10"/>
+                                <Buttons:LUButton  Appearance="Primary" IsLoading="True" LoadingText="加载中..." Margin="10"/>
+                                <Buttons:LUButton Content="打开链接" OpenUrl="https://github.com/lancerui" Margin="10"/>
+                                <Buttons:LUConfirmButton Appearance="Default"  Content="删除确认按钮"  ConfirmContent="确认删除" Click="LUButton_Click"  Icon="Delete" Margin="10"/>
+                                <Buttons:LUConfirmButton Appearance="Default" ConfirmIcon="Check" ConfirmTimeout="10000" Content="确认10秒"  ConfirmContent="确认删除" Click="LUButton_Click"  Icon="Delete" Margin="10"/>
+                                <Buttons:LUConfirmButton IsAnimation="False" Appearance="Subtle" ConfirmAppearance="Subtle" Command="{Binding HomeCommand}" Margin="10">
+                                    <Buttons:LUConfirmButton.ConfirmContent>
+                                        <Border>
+                                            <TextBlock Text="确认删除！"/>
+                                        </Border>
+                                    </Buttons:LUConfirmButton.ConfirmContent>
+                                    <Grid>
+                                        <Border>
+                                            <TextBlock Text="无动画确认"/>
+                                        </Border>
+                                    </Grid>
+                                </Buttons:LUConfirmButton>
+                            </StackPanel>
+                            <StackPanel HorizontalAlignment="Left" Margin="10">
+                                <TextBlock Text="Disabled"/>
+                                <Buttons:LUButton Content="Default" IsEnabled="False" Margin="10"/>
+                                <Buttons:LUButton Content="Primary" IsEnabled="False" Appearance="Primary" Margin="10"/>
+                                <Buttons:LUButton Content="Danger" IsEnabled="False" Appearance="Danger" Margin="10"/>
+                                <Buttons:LUButton Content="Link" IsEnabled="False" Appearance="Link" Margin="10"/>
+                                <Buttons:LUButton Content="Subtle" IsEnabled="False" Appearance="Subtle" Margin="10"/>
+                                <Buttons:LUButton Content="Subtle" IsEnabled="False" Icon="Games" Appearance="Subtle" Margin="10"/>
+                                <Buttons:LUButton Content="Icon Button" IsEnabled="False" Icon="Cloud" Margin="10"/>
+
+                            </StackPanel>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
+            </TabControl>
+        </Grid>
     </Grid>
 </lu:LUWindow>

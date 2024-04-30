@@ -1,5 +1,7 @@
 ﻿using LancerUI.Controls.Buttons;
+using LancerUI.Controls.Types;
 using LancerUI.Controls.Windows;
+using LancerUI.Extensions;
 using LancerUI.Language;
 using LancerUI.Utils;
 using System;
@@ -57,8 +59,8 @@ namespace LancerUI.Demo
         public class MenuItem
         {
             public string Title { get; set; }
-            public IconTypes Icon { get; set; }
-            public IconTypes SelectedIcon { get; set; }
+            public IconSymbol Icon { get; set; }
+            public IconSymbol SelectedIcon { get; set; }
         }
         public ObservableCollection<MenuItem> MenuItems { get; set; }
         public Command HomeCommand { get; set; }
@@ -67,53 +69,42 @@ namespace LancerUI.Demo
         {
             InitializeComponent();
 
-            HomeCommand= new Command((parameter) =>
+            HomeCommand = new Command((parameter) =>
             {
-                MessageBox.Show("Home");
+                MessageBox.Show("命令绑定测试弹窗");
             });
-           
+
             MenuItems = new ObservableCollection<MenuItem>()
             {
                 new MenuItem()
                 {
                     Title="主页",
-                    Icon= IconTypes.Home,
-                    SelectedIcon= IconTypes.HomeSolid
+                    Icon= IconSymbol.Home,
+                    SelectedIcon= IconSymbol.HomeFilled
                 },
                   new MenuItem()
                 {
                     Title="游戏",
-                    Icon= IconTypes.Game,
-                    SelectedIcon= IconTypes.GameConsole
+                    Icon= IconSymbol.Games,
+                    SelectedIcon= IconSymbol.GamesFilled
                 },
-                  new MenuItem()
-                {
-                    Title="游戏",
-                    Icon= IconTypes.Game,
-                    SelectedIcon= IconTypes.GameConsole
-                }
-                  ,
-                  new MenuItem()
-                {
-                    Title="游戏",
-                    Icon= IconTypes.Game,
-                    SelectedIcon= IconTypes.GameConsole
-                }
-                  ,
-                  new MenuItem()
-                {
-                    Title="游戏",
-                    Icon= IconTypes.Game,
-                    SelectedIcon= IconTypes.GameConsole
-                }
+               
             };
 
             DataContext = this;
 
             //  设置主题色
-            ThemeManager.SetWindowsThemeColor();
+            //ThemeManager.SetWindowsThemeColor();
             //  设置语言
             LanguageManager.SetLanguage();
+
+            var test = IconSymbol.ZoomFit.String();
+        }
+
+        private void LUButton_Click(object sender, RoutedEventArgs e)
+        {
+            
+            MessageBox.Show("删除成功（无作用弹窗）");
         }
     }
 }

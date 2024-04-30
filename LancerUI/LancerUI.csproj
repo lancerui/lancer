@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\IconFonts\FluentSystemIcons-Resizable.ttf" />
     <None Remove="Resources\IconFonts\Segoe Fluent Icons.ttf" />
   </ItemGroup>
 
@@ -16,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\IconFonts\FluentSystemIcons-Resizable.ttf" />
     <Resource Include="Resources\IconFonts\Segoe Fluent Icons.ttf" />
   </ItemGroup>
 

@@ -175,7 +175,7 @@
                                                     Style="{StaticResource WindowSystemButton}"
                                                     Command="{x:Static w:LUWindowCommands.MinimizeWindowCommand}"
                                                     Visibility="{TemplateBinding MinimizeVisibility}">
-                                                    <base:Icon FontSize="10" IconType="ChromeMinimize"></base:Icon>
+                                                    <base:Icon FontSize="15" Symbol="Subtract"></base:Icon>
                                                 </Button>
 
                                                 <!--最大化-->
@@ -185,7 +185,7 @@
                                                     Style="{StaticResource WindowSystemButton}"
                                                     Command="{x:Static w:LUWindowCommands.MaximizeWindowCommand}"
                                                     Visibility="{TemplateBinding MaximizeVisibility}">
-                                                    <base:Icon FontSize="10" IconType="ChromeMaximize"></base:Icon>
+                                                    <base:Icon FontSize="15" Symbol="Maximize"></base:Icon>
                                                 </Button>
 
                                                 <!--还原-->
@@ -195,7 +195,7 @@
                                                     Style="{StaticResource WindowSystemButton}"
                                                     Command="{x:Static w:LUWindowCommands.RestoreWindowCommand}"
                                                     Visibility="Collapsed">
-                                                    <base:Icon FontSize="10" IconType="ChromeRestore"></base:Icon>
+                                                    <base:Icon FontSize="13" Symbol="SquareMultiple"></base:Icon>
                                                 </Button>
                                                 <!--关闭-->
                                                 <Button
@@ -204,7 +204,7 @@
                                                     Style="{StaticResource WindowSystemCloseButton}"
                                                     Command="{x:Static w:LUWindowCommands.CloseWindowCommand}"
                                                     Visibility="{TemplateBinding CloseVisibility}">
-                                                    <base:Icon FontSize="10" IconType="ChromeClose"></base:Icon>
+                                                    <base:Icon FontSize="15" Symbol="Dismiss"></base:Icon>
                                                 </Button>
                                             </StackPanel>
                                         </Grid>

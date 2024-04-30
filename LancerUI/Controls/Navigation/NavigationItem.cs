@@ -1,4 +1,5 @@
 ﻿using LancerUI.Controls.Buttons;
+using LancerUI.Controls.Types;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -36,25 +37,25 @@ namespace LancerUI.Controls.Navigation
                 typeof(bool),
                 typeof(NavigationItem), new PropertyMetadata(false));
 
-        public IconTypes Icon
+        public IconSymbol Icon
         {
-            get { return (IconTypes)GetValue(IconProperty); }
+            get { return (IconSymbol)GetValue(IconProperty); }
             set { SetValue(IconProperty, value); }
         }
         public static readonly DependencyProperty IconProperty =
             DependencyProperty.Register("Icon",
-                typeof(IconTypes),
-                typeof(NavigationItem), new PropertyMetadata(IconTypes.None));
+                typeof(IconSymbol),
+                typeof(NavigationItem), new PropertyMetadata(IconSymbol.None));
 
-        public IconTypes SelectedIcon
+        public IconSymbol SelectedIcon
         {
-            get { return (IconTypes)GetValue(SelectedIconIconProperty); }
+            get { return (IconSymbol)GetValue(SelectedIconIconProperty); }
             set { SetValue(SelectedIconIconProperty, value); }
         }
         public static readonly DependencyProperty SelectedIconIconProperty =
             DependencyProperty.Register("SelectedIcon",
-                typeof(IconTypes),
-                typeof(NavigationItem), new PropertyMetadata(IconTypes.None));
+                typeof(IconSymbol),
+                typeof(NavigationItem), new PropertyMetadata(IconSymbol.None));
         #endregion
         public NavigationItem()
         {

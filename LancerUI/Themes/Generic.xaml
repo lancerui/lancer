@@ -5,8 +5,10 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/LancerUI;component/Themes/Windows/LUWindow.xaml" />
         <ResourceDictionary Source="/LancerUI;component/Themes/Base/Icon.xaml" />
-        <ResourceDictionary Source="/LancerUI;component/Themes/Buttons/IconButton.xaml" />
         <ResourceDictionary Source="/LancerUI;component/Themes/Navigation/Navigation.xaml" />
         <ResourceDictionary Source="/LancerUI;component/Themes/Navigation/NavigationItem.xaml" />
+        <ResourceDictionary Source="/LancerUI;component/Themes/Buttons/LUButton.xaml" />
+        <ResourceDictionary Source="/LancerUI;component/Themes/Buttons/LUConfirmButton.xaml" />
+        <ResourceDictionary Source="/LancerUI;component/Themes/Spinner/LUSpinner.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

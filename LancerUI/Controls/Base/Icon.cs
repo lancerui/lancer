@@ -8,27 +8,29 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows;
 using LancerUI.Utils;
+using LancerUI.Controls.Types;
+using LancerUI.Extensions;
 
 namespace LancerUI.Controls.Base
 {
     public class Icon : Control
     {
-        public IconTypes IconType
+        public IconSymbol Symbol
         {
-            get { return (IconTypes)GetValue(IconTypeProperty); }
-            set { SetValue(IconTypeProperty, value); }
+            get { return (IconSymbol)GetValue(SymbolProperty); }
+            set { SetValue(SymbolProperty, value); }
         }
-        public static readonly DependencyProperty IconTypeProperty =
-            DependencyProperty.Register("IconType",
-                typeof(IconTypes),
-                typeof(Icon), new PropertyMetadata(IconTypes.Back, new PropertyChangedCallback(OnIconTypeChanged)));
+        public static readonly DependencyProperty SymbolProperty =
+            DependencyProperty.Register("Symbol",
+                typeof(IconSymbol),
+                typeof(Icon), new PropertyMetadata(IconSymbol.EmojiSmileSlight, new PropertyChangedCallback(OnSymbolChanged)));
 
-        private static void OnIconTypeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        private static void OnSymbolChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var control = d as Icon;
             if (e.NewValue != e.OldValue)
             {
-                control.Unicode = IconFontConverter.ToUnicode((IconTypes)e.NewValue);
+                control.Unicode = control.Symbol.String();
             }
         }
 
@@ -40,8 +42,7 @@ namespace LancerUI.Controls.Base
         public static readonly DependencyProperty UnicodeProperty =
         DependencyProperty.Register("Unicode",
                 typeof(string),
-                typeof(Icon),
-                new PropertyMetadata(IconFontConverter.ToUnicode(IconTypes.Back)));
+                typeof(Icon));
         public Icon()
         {
             DefaultStyleKey = typeof(Icon);

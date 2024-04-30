@@ -5,20 +5,16 @@
         <Setter Property="SnapsToDevicePixels"
           Value="true" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-        <Setter Property="MinWidth" Value="18"/>
-        <Setter Property="MinHeight" Value="18"/>
-        <Setter Property="FontSize" Value="16"/>
-        <Setter Property="FontFamily" Value="pack://application:,,,/LancerUI;component/Resources/IconFonts/#Segoe Fluent Icons"/>
+        <!--<Setter Property="MinWidth" Value="18"/>
+        <Setter Property="MinHeight" Value="18"/>-->
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="FontFamily" Value="pack://application:,,,/LancerUI;component/Resources/IconFonts/#FluentSystemIcons-Resizable"/>
         <Setter Property="Background" Value="Transparent"/>
 
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:Icon}">
-                    <!--<Border Background="{TemplateBinding Background}">-->
-
                     <TextBlock Text="{TemplateBinding Unicode}" FontFamily="{TemplateBinding FontFamily}" FontSize="{TemplateBinding FontSize}" VerticalAlignment="Center" HorizontalAlignment="Center" TextOptions.TextFormattingMode="Ideal" SnapsToDevicePixels="True"  />
-                    <!--</Border>-->
-
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

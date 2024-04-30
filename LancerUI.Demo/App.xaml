@@ -7,7 +7,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <!--<ResourceDictionary Source="/LancerUI;component/Resources/Language/ZHCN.xaml" />-->
-                <ResourceDictionary Source="/LancerUI;component/Resources/Styles/Light.xaml"/>
+                <ResourceDictionary Source="/LancerUI;component/Resources/Styles/Light/Light.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

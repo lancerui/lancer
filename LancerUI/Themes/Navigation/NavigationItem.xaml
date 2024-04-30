@@ -33,7 +33,7 @@ Storyboard.TargetName="Border"
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
                         <Grid x:Name="Content"  Margin="5">
-                            <base:Icon x:Name="Icon" IconType="{TemplateBinding Icon}" Foreground="{Binding ElementName=Title,Path=Foreground}" VerticalAlignment="Center" Grid.Column="1" FontSize="20" RenderTransformOrigin="0.5,0.5">
+                            <base:Icon x:Name="Icon" Symbol="{TemplateBinding Icon}" Foreground="{Binding ElementName=Title,Path=Foreground}" VerticalAlignment="Center" Grid.Column="1" FontSize="26" RenderTransformOrigin="0.5,0.5">
                                 <base:Icon.RenderTransform>
                                     <TransformGroup>
                                         <TranslateTransform X="0" Y="-5"/>
@@ -80,7 +80,7 @@ Storyboard.TargetProperty="(base:Icon.RenderTransform).Children[0].(TranslateTra
                             <Setter TargetName="Title" Property="Foreground" Value="{DynamicResource ThemeBrush}"/>
                             <Setter TargetName="Title" Property="Visibility" Value="Collapsed"/>
                             <Setter TargetName="Border" Property="Background" Value="{DynamicResource NavSelectedBrush}"/>
-                            <Setter TargetName="Icon" Property="IconType" Value="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:NavigationItem}}, Path=SelectedIcon}"/>
+                            <Setter TargetName="Icon" Property="Symbol" Value="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:NavigationItem}}, Path=SelectedIcon}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
