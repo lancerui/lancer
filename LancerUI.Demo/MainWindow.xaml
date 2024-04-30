@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LancerUI.Demo"
         xmlns:lu="https://github.com/lancerui/lancer"
-        xmlns:Base="clr-namespace:LancerUI.Controls.Base;assembly=LancerUI" xmlns:Navigation="clr-namespace:LancerUI.Controls.Navigation;assembly=LancerUI" xmlns:Buttons="clr-namespace:LancerUI.Controls.Buttons;assembly=LancerUI" x:Class="LancerUI.Demo.MainWindow"
+        xmlns:Base="clr-namespace:LancerUI.Controls.Base;assembly=LancerUI" xmlns:Navigation="clr-namespace:LancerUI.Controls.Navigation;assembly=LancerUI" xmlns:Buttons="clr-namespace:LancerUI.Controls.Buttons;assembly=LancerUI" xmlns:input="clr-namespace:LancerUI.Controls.Input;assembly=LancerUI" xmlns:spiner="clr-namespace:LancerUI.Controls.Spinner;assembly=LancerUI"  x:Class="LancerUI.Demo.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <lu:LUWindow.TitleBarMainContent>
@@ -31,6 +31,7 @@
         </Navigation:Navigation>
         <Grid Grid.Column="1" Background="White">
             <TabControl>
+                <!--按钮-->
                 <TabItem Header="按钮 Button">
                     <ScrollViewer>
                         <StackPanel Orientation="Horizontal">
@@ -75,7 +76,68 @@
                                 <Buttons:LUButton Content="Subtle" IsEnabled="False" Appearance="Subtle" Margin="10"/>
                                 <Buttons:LUButton Content="Subtle" IsEnabled="False" Icon="Games" Appearance="Subtle" Margin="10"/>
                                 <Buttons:LUButton Content="Icon Button" IsEnabled="False" Icon="Cloud" Margin="10"/>
+                                
+                            </StackPanel>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
+                <!--输入框-->
+                <TabItem Header="输入框 Input">
+                    <ScrollViewer Padding="10">
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel HorizontalAlignment="Left" Width="300">
+                                <TextBlock Text="Normal"/>
+                                <input:LUInput Placeholder="带占位文本输入框" Margin="0,10,0,0"/>
+                                <input:LUInput  Margin="0,10,0,0"/>
+                                <input:LUInput Placeholder="带图标输入框" Icon="Person" Margin="0,10,0,0"/>
+                                <input:LUInput Placeholder="错误提示输入框" IsInvalid="True" InvalidMessage="输入错误"  Icon="ErrorCircle" Margin="0,10,0,0"/>
+                                <input:LUInput Placeholder="图标位置在右" Icon="Search" IconPosition="Right" Margin="0,10,0,0"/>
+                                <input:LUInput Placeholder="图标大小20" Icon="Mention" IconSize="20" Margin="0,10,0,0"/>
+                                <input:LUInput Placeholder="前置内容输入框" Margin="0,10,0,0">
+                                    <input:LUInput.ContentBefore>
+                                        <TextBlock VerticalAlignment="Center" Margin="5,0,0,0">名称</TextBlock>
+                                    </input:LUInput.ContentBefore>
+                                </input:LUInput>
+                                <input:LUInput Placeholder="后置内容输入框" Margin="0,10,0,0">
+                                    <input:LUInput.ContentAfter>
+                                        <spiner:LUSpinner></spiner:LUSpinner>
+                                    </input:LUInput.ContentAfter>
+                                </input:LUInput>
 
+                                <input:LUInput Icon="Search" IsFocusedPopup="True" FontSize="14" Placeholder="弹出层输入框" Margin="0,10,0,0">
+                                    <input:LUInput.PopupContent>
+                                        <Border Padding="10">
+                                            <TextBlock>123</TextBlock>
+                                        </Border>
+                                    </input:LUInput.PopupContent>
+                                </input:LUInput>
+                            </StackPanel>
+                            <StackPanel HorizontalAlignment="Left" Margin="10,0,0,0" Width="300">
+                                <TextBlock Text="Disabled"/>
+                                <input:LUInput IsEnabled="False" Placeholder="带占位文本输入框" Margin="0,10,0,0"/>
+                                <input:LUInput IsEnabled="False" Margin="0,10,0,0"/>
+                                <input:LUInput IsEnabled="False" Placeholder="带图标输入框" Icon="Person" Margin="0,10,0,0"/>
+                                <input:LUInput IsEnabled="False" Placeholder="错误提示输入框" IsInvalid="True" InvalidMessage="输入错误"  Icon="ErrorCircle" Margin="0,10,0,0"/>
+                                <input:LUInput IsEnabled="False" Placeholder="图标位置在右" Icon="Search" IconPosition="Right" Margin="0,10,0,0"/>
+                                <input:LUInput IsEnabled="False" Placeholder="图标大小20" Icon="Mention" IconSize="20" Margin="0,10,0,0"/>
+                                <input:LUInput IsEnabled="False" Placeholder="前置内容输入框" Margin="0,10,0,0">
+                                    <input:LUInput.ContentBefore>
+                                        <TextBlock VerticalAlignment="Center" Margin="5,0,0,0">名称</TextBlock>
+                                    </input:LUInput.ContentBefore>
+                                </input:LUInput>
+                                <input:LUInput IsEnabled="False" Placeholder="后置内容输入框" Margin="0,10,0,0">
+                                    <input:LUInput.ContentAfter>
+                                        <spiner:LUSpinner></spiner:LUSpinner>
+                                    </input:LUInput.ContentAfter>
+                                </input:LUInput>
+
+                                <input:LUInput IsEnabled="False" Icon="Search" IsFocusedPopup="True" FontSize="14" Placeholder="弹出层输入框" Margin="0,10,0,0">
+                                    <input:LUInput.PopupContent>
+                                        <Border Padding="10">
+                                            <TextBlock>123</TextBlock>
+                                        </Border>
+                                    </input:LUInput.PopupContent>
+                                </input:LUInput>
                             </StackPanel>
                         </StackPanel>
                     </ScrollViewer>

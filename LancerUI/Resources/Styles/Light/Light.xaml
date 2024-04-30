@@ -22,5 +22,6 @@
         <ResourceDictionary Source="/LancerUI;component/Resources/Styles/Light/LUButton.xaml" />
         <ResourceDictionary Source="/LancerUI;component/Resources/Styles/Light/LUWindow.xaml" />
         <ResourceDictionary Source="/LancerUI;component/Resources/Styles/Light/Navigation.xaml" />
+        <ResourceDictionary Source="/LancerUI;component/Resources/Styles/Light/LUInput.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
