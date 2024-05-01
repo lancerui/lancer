@@ -76,7 +76,7 @@
                                 <Buttons:LUButton Content="Subtle" IsEnabled="False" Appearance="Subtle" Margin="10"/>
                                 <Buttons:LUButton Content="Subtle" IsEnabled="False" Icon="Games" Appearance="Subtle" Margin="10"/>
                                 <Buttons:LUButton Content="Icon Button" IsEnabled="False" Icon="Cloud" Margin="10"/>
-                                
+
                             </StackPanel>
                         </StackPanel>
                     </ScrollViewer>
@@ -85,7 +85,7 @@
                 <TabItem Header="输入框 Input">
                     <ScrollViewer Padding="10">
                         <StackPanel Orientation="Horizontal">
-                            <StackPanel HorizontalAlignment="Left" Width="300">
+                            <StackPanel HorizontalAlignment="Left" Width="200">
                                 <TextBlock Text="Normal"/>
                                 <input:LUInput Placeholder="带占位文本输入框" Margin="0,10,0,0"/>
                                 <input:LUInput  Margin="0,10,0,0"/>
@@ -112,7 +112,12 @@
                                     </input:LUInput.PopupContent>
                                 </input:LUInput>
                             </StackPanel>
-                            <StackPanel HorizontalAlignment="Left" Margin="10,0,0,0" Width="300">
+                            <StackPanel HorizontalAlignment="Left" Width="200" Margin="10,0,0,0">
+                                <TextBlock Text="Password"/>
+                                <input:LUPasswordInput IsClearable="True" Icon="Password"  Placeholder="密码输入框" Margin="0,10,0,0"/>
+                                <input:LUPasswordInput IsClearable="True" Icon="Password" Password="123"  Placeholder="密码输入框233" Margin="0,10,0,0"/>
+                            </StackPanel>
+                            <StackPanel HorizontalAlignment="Left" Margin="10,0,0,0" Width="200">
                                 <TextBlock Text="Disabled"/>
                                 <input:LUInput IsEnabled="False" Placeholder="带占位文本输入框" Margin="0,10,0,0"/>
                                 <input:LUInput IsEnabled="False" Margin="0,10,0,0"/>
