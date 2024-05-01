@@ -27,8 +27,8 @@
                             <!--<Setter Property="Foreground" Value="{DynamicResource ButtonTextDisabled}"/>-->
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource HoverBackgroundBrush}" />
-                            <Setter Property="Foreground" Value="{DynamicResource PrimaryColorBrush}"/>
+                            <Setter Property="Background" Value="{DynamicResource SystemBtnHoverBgBrush}" />
+                            <!--<Setter Property="Foreground" Value="{DynamicResource PrimaryColorBrush}"/>-->
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
                             <Setter Property="Opacity" Value=".8" />
