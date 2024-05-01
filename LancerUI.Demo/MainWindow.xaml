@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LancerUI.Demo"
         xmlns:lu="https://github.com/lancerui/lancer"
-        xmlns:Base="clr-namespace:LancerUI.Controls.Base;assembly=LancerUI" xmlns:Navigation="clr-namespace:LancerUI.Controls.Navigation;assembly=LancerUI" xmlns:Buttons="clr-namespace:LancerUI.Controls.Buttons;assembly=LancerUI" xmlns:input="clr-namespace:LancerUI.Controls.Input;assembly=LancerUI" xmlns:spiner="clr-namespace:LancerUI.Controls.Spinner;assembly=LancerUI"  x:Class="LancerUI.Demo.MainWindow"
+        xmlns:Base="clr-namespace:LancerUI.Controls.Base;assembly=LancerUI" xmlns:Navigation="clr-namespace:LancerUI.Controls.Navigation;assembly=LancerUI" xmlns:Buttons="clr-namespace:LancerUI.Controls.Buttons;assembly=LancerUI" xmlns:input="clr-namespace:LancerUI.Controls.Input;assembly=LancerUI" xmlns:spiner="clr-namespace:LancerUI.Controls.Spinner;assembly=LancerUI" xmlns:switch="clr-namespace:LancerUI.Controls.Switch;assembly=LancerUI" x:Class="LancerUI.Demo.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <lu:LUWindow.TitleBarMainContent>
@@ -143,6 +143,27 @@
                                         </Border>
                                     </input:LUInput.PopupContent>
                                 </input:LUInput>
+                            </StackPanel>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
+                <!--输入框-->
+                <TabItem Header="开关 Switch">
+                    <ScrollViewer Padding="10">
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel HorizontalAlignment="Left" Width="200">
+                                <TextBlock Text="默认"/>
+                                <switch:LUSwitch Margin="0,10,0,0" />
+                                <TextBlock Text="禁用" Margin="0,10,0,0"/>
+                                <switch:LUSwitch IsEnabled="False" Margin="0,10,0,0" />
+                                <TextBlock Text="选中" Margin="0,10,0,0"/>
+                                <switch:LUSwitch IsChecked="True"  Margin="0,10,0,0" />
+                                <TextBlock Text="状态文本" Margin="0,10,0,0"/>
+                                <switch:LUSwitch IsChecked="True" OnText="开" OffText="关" Margin="0,10,0,0" />
+                                <TextBlock Text="自定义外观" Margin="0,10,0,0"/>
+                                <switch:LUSwitch ThumbSize="10" ThumbRadius="2" SwitchRadius="6" SwitchWitdh="35" SwitchHeight="25" Margin="0,10,0,0"/>
+                                <TextBlock Text="禁用动画" Margin="0,10,0,0"/>
+                                <switch:LUSwitch IsAnimation="False" Margin="0,10,0,0" />
                             </StackPanel>
                         </StackPanel>
                     </ScrollViewer>
