@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFrameworks>net6.0-windows;net481;net472;net462</TargetFrameworks>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>ICON V1 CIRCLE.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Resource Include="ICON V1 CIRCLE.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LancerUI\LancerUI.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4594BECB-FDC9-4ED5-8238-566D680433A7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LancerUI", "src\LancerUI\LancerUI.csproj", "{292D8441-CF55-494F-A4D1-B7E39467B09F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LancerUI.Demo", "src\LancerUI.Demo\LancerUI.Demo.csproj", "{3DF93AB9-94A4-4A51-AD8A-243E0D692730}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{292D8441-CF55-494F-A4D1-B7E39467B09F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{292D8441-CF55-494F-A4D1-B7E39467B09F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{292D8441-CF55-494F-A4D1-B7E39467B09F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{292D8441-CF55-494F-A4D1-B7E39467B09F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DF93AB9-94A4-4A51-AD8A-243E0D692730}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DF93AB9-94A4-4A51-AD8A-243E0D692730}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DF93AB9-94A4-4A51-AD8A-243E0D692730}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DF93AB9-94A4-4A51-AD8A-243E0D692730}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{292D8441-CF55-494F-A4D1-B7E39467B09F} = {4594BECB-FDC9-4ED5-8238-566D680433A7}
+		{3DF93AB9-94A4-4A51-AD8A-243E0D692730} = {4594BECB-FDC9-4ED5-8238-566D680433A7}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D034AA35-CDB5-4F52-9E04-7EF637BE0ADC}
+	EndGlobalSection
+EndGlobal
