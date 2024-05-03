@@ -13,5 +13,7 @@
         <ResourceDictionary Source="/LancerUI;component/Themes/Input/LUInput.xaml" />
         <ResourceDictionary Source="/LancerUI;component/Themes/Input/LUPasswordInput.xaml" />
         <ResourceDictionary Source="/LancerUI;component/Themes/Switch/LUSwitch.xaml" />
+        <ResourceDictionary Source="/LancerUI;component/Themes/Select/LUSelect.xaml" />
+        <ResourceDictionary Source="/LancerUI;component/Themes/Select/LUSelectItem.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

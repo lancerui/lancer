@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LancerUI.Demo"
         xmlns:lu="https://github.com/lancerui/lancer"
-        xmlns:Base="clr-namespace:LancerUI.Controls.Base;assembly=LancerUI" xmlns:Navigation="clr-namespace:LancerUI.Controls.Navigation;assembly=LancerUI" xmlns:Buttons="clr-namespace:LancerUI.Controls.Buttons;assembly=LancerUI" xmlns:input="clr-namespace:LancerUI.Controls.Input;assembly=LancerUI" xmlns:spiner="clr-namespace:LancerUI.Controls.Spinner;assembly=LancerUI" xmlns:switch="clr-namespace:LancerUI.Controls.Switch;assembly=LancerUI" x:Class="LancerUI.Demo.MainWindow"
+        xmlns:Base="clr-namespace:LancerUI.Controls.Base;assembly=LancerUI" xmlns:Navigation="clr-namespace:LancerUI.Controls.Navigation;assembly=LancerUI" xmlns:Buttons="clr-namespace:LancerUI.Controls.Buttons;assembly=LancerUI" xmlns:input="clr-namespace:LancerUI.Controls.Input;assembly=LancerUI" xmlns:spiner="clr-namespace:LancerUI.Controls.Spinner;assembly=LancerUI" xmlns:switch="clr-namespace:LancerUI.Controls.Switch;assembly=LancerUI" xmlns:select="clr-namespace:LancerUI.Controls.Select;assembly=LancerUI" x:Class="LancerUI.Demo.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" >
     <lu:LUWindow.TitleBarMainContent>
@@ -147,7 +147,7 @@
                         </StackPanel>
                     </ScrollViewer>
                 </TabItem>
-                <!--输入框-->
+                <!--开关 Switch-->
                 <TabItem Header="开关 Switch">
                     <ScrollViewer Padding="10">
                         <StackPanel Orientation="Horizontal">
@@ -164,6 +164,47 @@
                                 <switch:LUSwitch ThumbSize="10" ThumbRadius="2" SwitchRadius="6" SwitchWitdh="35" SwitchHeight="25" Margin="0,10,0,0"/>
                                 <TextBlock Text="禁用动画" Margin="0,10,0,0"/>
                                 <switch:LUSwitch IsAnimation="False" Margin="0,10,0,0" />
+                            </StackPanel>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
+                <!--选择器 Select-->
+                <TabItem Header="选择器 Select">
+                    <ScrollViewer Padding="10">
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel HorizontalAlignment="Left" Width="200">
+                                <TextBlock Text="默认"/>
+                                <select:LUSelect Margin="0,10,0,0">
+                                    <select:LUSelectItem Text="浅色"/>
+                                    <select:LUSelectItem Text="深色"/>
+                                    <select:LUSelectItem Text="Windows 默认"/>
+                                </select:LUSelect>
+                                <TextBlock Text="数据绑定" Margin="0,10,0,0"/>
+                                <select:LUSelect SelectedItem="{Binding SelectedItem}" ItemsSource="{Binding LUSelectItems}" Margin="0,10,0,0"/>
+                                <TextBlock Text="显示图标" Margin="0,10,0,0"/>
+                                <select:LUSelect Margin="0,10,0,0">
+                                    <select:LUSelectItem Icon="Chat" Text="信息"/>
+                                    <select:LUSelectItem Icon="Call" Text="电话"/>
+                                </select:LUSelect>
+                                <TextBlock Text="多条项目" Margin="0,10,0,0"/>
+                                <select:LUSelect Margin="0,10,0,0">
+                                    <select:LUSelectItem  Text="1"/>
+                                    <select:LUSelectItem  Text="2"/>
+                                    <select:LUSelectItem  Text="3"/>
+                                    <select:LUSelectItem  Text="4"/>
+                                    <select:LUSelectItem  Text="5"/>
+                                    <select:LUSelectItem  Text="6"/>
+                                    <select:LUSelectItem  Text="7"/>
+                                    <select:LUSelectItem  Text="8"/>
+                                    <select:LUSelectItem  Text="9"/>
+                                    <select:LUSelectItem  Text="10"/>
+                                </select:LUSelect>
+                                <TextBlock Text="禁用" Margin="0,10,0,0"/>
+                                <select:LUSelect IsEnabled="False" Margin="0,10,0,0" >
+                                    <select:LUSelectItem Text="浅色"/>
+                                    <select:LUSelectItem Text="深色"/>
+                                    <select:LUSelectItem Text="Windows 默认"/>
+                                </select:LUSelect>
                             </StackPanel>
                         </StackPanel>
                     </ScrollViewer>

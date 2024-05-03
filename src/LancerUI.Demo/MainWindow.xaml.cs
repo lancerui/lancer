@@ -62,7 +62,14 @@ namespace LancerUI.Demo
             public IconSymbol Icon { get; set; }
             public IconSymbol SelectedIcon { get; set; }
         }
+        public class SelectItemModel
+        {
+            public string Text { get; set; }
+            public IconSymbol Icon{ get; set; }
+        }
         public ObservableCollection<MenuItem> MenuItems { get; set; }
+        public ObservableCollection<SelectItemModel> LUSelectItems { get; set; }
+        public SelectItemModel SelectedItem { get; set; }
         public Command HomeCommand { get; set; }
 
         public MainWindow()
@@ -90,6 +97,22 @@ namespace LancerUI.Demo
                 },
                
             };
+
+            LUSelectItems = new ObservableCollection<SelectItemModel>()
+            {
+                new SelectItemModel()
+                {
+                    Text="蓝牙",
+                    Icon= IconSymbol.Bluetooth
+                },
+                 new SelectItemModel()
+                {
+                    Text="手机",
+                    Icon= IconSymbol.Phone
+                }
+            };
+
+            SelectedItem = LUSelectItems.FirstOrDefault();
 
             DataContext = this;
 
