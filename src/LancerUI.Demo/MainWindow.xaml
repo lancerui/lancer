@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LancerUI.Demo"
         xmlns:lu="https://github.com/lancerui/lancer"
-        xmlns:Base="clr-namespace:LancerUI.Controls.Base;assembly=LancerUI" xmlns:Navigation="clr-namespace:LancerUI.Controls.Navigation;assembly=LancerUI" xmlns:Buttons="clr-namespace:LancerUI.Controls.Buttons;assembly=LancerUI" xmlns:input="clr-namespace:LancerUI.Controls.Input;assembly=LancerUI" xmlns:spiner="clr-namespace:LancerUI.Controls.Spinner;assembly=LancerUI" xmlns:switch="clr-namespace:LancerUI.Controls.Switch;assembly=LancerUI" xmlns:select="clr-namespace:LancerUI.Controls.Select;assembly=LancerUI" x:Class="LancerUI.Demo.MainWindow"
+        xmlns:Base="clr-namespace:LancerUI.Controls.Base;assembly=LancerUI" xmlns:Navigation="clr-namespace:LancerUI.Controls.Navigation;assembly=LancerUI" xmlns:Buttons="clr-namespace:LancerUI.Controls.Buttons;assembly=LancerUI" xmlns:input="clr-namespace:LancerUI.Controls.Input;assembly=LancerUI" xmlns:spiner="clr-namespace:LancerUI.Controls.Spinner;assembly=LancerUI" xmlns:switch="clr-namespace:LancerUI.Controls.Switch;assembly=LancerUI" xmlns:select="clr-namespace:LancerUI.Controls.Select;assembly=LancerUI" xmlns:selectorbar="clr-namespace:LancerUI.Controls.SelectorBar;assembly=LancerUI" x:Class="LancerUI.Demo.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" >
     <lu:LUWindow.TitleBarMainContent>
@@ -205,6 +205,35 @@
                                     <select:LUSelectItem Text="深色"/>
                                     <select:LUSelectItem Text="Windows 默认"/>
                                 </select:LUSelect>
+                            </StackPanel>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
+                <!--选择器栏 SelectorBar-->
+                <TabItem Header="选择器栏 SelectorBar">
+                    <ScrollViewer Padding="10">
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel HorizontalAlignment="Left">
+                                <TextBlock Text="默认"/>
+                                <selectorbar:LUSelectorBar Margin="0,10,0,0" SelectedIndex="2">
+                                    <selectorbar:LUSelectorBarItem Icon="Share" Text="分享"/>
+                                    <selectorbar:LUSelectorBarItem Icon="Star" Text="收藏"/>
+                                    <selectorbar:LUSelectorBarItem Icon="Games" Text="游戏"/>
+                                </selectorbar:LUSelectorBar>
+                                <TextBlock Text="禁用" Margin="0,10,0,0"/>
+                                <selectorbar:LUSelectorBar Margin="0,10,0,0"  IsEnabled="False">
+                                    <selectorbar:LUSelectorBarItem Icon="Share" Text="分享"/>
+                                    <selectorbar:LUSelectorBarItem Icon="Star" Text="收藏"/>
+                                    <selectorbar:LUSelectorBarItem Icon="Games" Text="游戏"/>
+                                </selectorbar:LUSelectorBar>
+                                <TextBlock Text="禁用单项" Margin="0,10,0,0"/>
+                                <selectorbar:LUSelectorBar Margin="0,10,0,0"  >
+                                    <selectorbar:LUSelectorBarItem Icon="Share" Text="分享"/>
+                                    <selectorbar:LUSelectorBarItem Icon="Star" Text="收藏"/>
+                                    <selectorbar:LUSelectorBarItem IsEnabled="False" Icon="Games" Text="游戏"/>
+                                </selectorbar:LUSelectorBar>
+                                <TextBlock Text="数据绑定" Margin="0,10,0,0"/>
+                                <selectorbar:LUSelectorBar ItemsSource="{Binding LUSelectItems}" SelectedItem="{Binding SelectedItem}" Margin="0,10,0,0"  />
                             </StackPanel>
                         </StackPanel>
                     </ScrollViewer>

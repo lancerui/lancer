@@ -15,5 +15,7 @@
         <ResourceDictionary Source="/LancerUI;component/Themes/Switch/LUSwitch.xaml" />
         <ResourceDictionary Source="/LancerUI;component/Themes/Select/LUSelect.xaml" />
         <ResourceDictionary Source="/LancerUI;component/Themes/Select/LUSelectItem.xaml" />
+        <ResourceDictionary Source="/LancerUI;component/Themes/SelectorBar/LUSelectorBar.xaml" />
+        <ResourceDictionary Source="/LancerUI;component/Themes/SelectorBar/LUSelectorBarItem.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
