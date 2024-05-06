@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LancerUI.Demo"
         xmlns:lu="https://github.com/lancerui/lancer"
-        xmlns:Base="clr-namespace:LancerUI.Controls.Base;assembly=LancerUI" xmlns:Navigation="clr-namespace:LancerUI.Controls.Navigation;assembly=LancerUI" xmlns:Buttons="clr-namespace:LancerUI.Controls.Buttons;assembly=LancerUI" xmlns:input="clr-namespace:LancerUI.Controls.Input;assembly=LancerUI" xmlns:spiner="clr-namespace:LancerUI.Controls.Spinner;assembly=LancerUI" xmlns:switch="clr-namespace:LancerUI.Controls.Switch;assembly=LancerUI" xmlns:select="clr-namespace:LancerUI.Controls.Select;assembly=LancerUI" xmlns:selectorbar="clr-namespace:LancerUI.Controls.SelectorBar;assembly=LancerUI" x:Class="LancerUI.Demo.MainWindow"
+        xmlns:Base="clr-namespace:LancerUI.Controls.Base;assembly=LancerUI" xmlns:Navigation="clr-namespace:LancerUI.Controls.Navigation;assembly=LancerUI" xmlns:Buttons="clr-namespace:LancerUI.Controls.Buttons;assembly=LancerUI" xmlns:input="clr-namespace:LancerUI.Controls.Input;assembly=LancerUI" xmlns:spiner="clr-namespace:LancerUI.Controls.Spinner;assembly=LancerUI" xmlns:switch="clr-namespace:LancerUI.Controls.Switch;assembly=LancerUI" xmlns:select="clr-namespace:LancerUI.Controls.Select;assembly=LancerUI" xmlns:selectorbar="clr-namespace:LancerUI.Controls.SelectorBar;assembly=LancerUI" xmlns:menu="clr-namespace:LancerUI.Controls.Menu;assembly=LancerUI" xmlns:separator="clr-namespace:LancerUI.Controls.Separator;assembly=LancerUI" x:Class="LancerUI.Demo.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" >
     <lu:LUWindow.TitleBarMainContent>
@@ -77,6 +77,37 @@
                                 <Buttons:LUButton Content="Subtle" IsEnabled="False" Icon="Games" Appearance="Subtle" Margin="10"/>
                                 <Buttons:LUButton Content="Icon Button" IsEnabled="False" Icon="Cloud" Margin="10"/>
 
+                            </StackPanel>
+                            <StackPanel HorizontalAlignment="Left" Margin="10">
+                                <TextBlock Text="弹出层"/>
+                                <Buttons:LUFlyoutButton Content="弹出" Appearance="Default" Icon="Share" Margin="0,10,0,0">
+                                    <Buttons:LUFlyoutButton.Flyout>
+                                        <Grid Margin="10">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="auto"/>
+                                            </Grid.RowDefinitions>
+                                            <TextBlock Text="这是一个弹出层"/>
+                                            <Buttons:LUButton Grid.Row="1" Margin="0,10,0,0" HorizontalAlignment="Right">继续</Buttons:LUButton>
+                                        </Grid>
+                                    </Buttons:LUFlyoutButton.Flyout>
+                                </Buttons:LUFlyoutButton>
+                                <Buttons:LUFlyoutButton Content="弹出菜单" Appearance="Subtle" Margin="0,10,0,0">
+                                    <Buttons:LUFlyoutButton.Flyout>
+                                        <menu:LUMenu>
+                                            <menu:LUMenuItem Header="Share" IsChecked="True">
+                                                <menu:LUMenuItem.Icon>
+                                                    <Base:Icon Symbol="Share" FontSize="20"/>
+                                                </menu:LUMenuItem.Icon>
+                                            </menu:LUMenuItem>
+                                            <separator:LUSeparator IsEnabled="False" Focusable="False"/>
+                                            <menu:LUMenuItem Header="Send to">
+                                                <menu:LUMenuItem Header="Bluetooth"/>
+                                                <menu:LUMenuItem Header="Desktop" Click="LUButton_Click"/>
+                                            </menu:LUMenuItem>
+                                        </menu:LUMenu>
+                                    </Buttons:LUFlyoutButton.Flyout>
+                                </Buttons:LUFlyoutButton>
                             </StackPanel>
                         </StackPanel>
                     </ScrollViewer>

@@ -49,7 +49,6 @@ namespace LancerUI.Controls.Navigation
         public Navigation()
         {
             DefaultStyleKey = typeof(Navigation);
-
             CommandBindings.Add(new CommandBinding(NavigationCommands.ClickCommand, OnNavigationItemClick));
         }
         public override void OnApplyTemplate()

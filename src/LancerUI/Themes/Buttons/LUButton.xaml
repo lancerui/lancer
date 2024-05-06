@@ -15,10 +15,8 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:LUButton}">
-                    <Border  x:Name="BoxBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" CornerRadius="4" Background="{TemplateBinding Background}">
-                        <Grid>
-                            <Border x:Name="MaskLayer" CornerRadius="4" Background="#ccc" Margin="-1" Visibility="Hidden" Opacity=".3" Panel.ZIndex="2"></Border>
-                            <spinner:LUSpinner x:Name="Spinner" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed" Text="{TemplateBinding LoadingText}"/>
+                    <Grid>
+                        <Border x:Name="BoxBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" CornerRadius="4" Background="{TemplateBinding Background}">
                             <Grid x:Name="ContentGrid" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="{TemplateBinding Padding}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="auto"/>
@@ -31,11 +29,13 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         RecognizesAccessKey="True"/>
-
                             </Grid>
-                            <Border x:Name="BottomBorder" BorderThickness="0,0,0,1" BorderBrush="#000"  Margin="1,0,1,-1" Opacity=".1" ></Border>
-                        </Grid>
-                    </Border>
+                        </Border>
+                        <spinner:LUSpinner x:Name="Spinner" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed" Text="{TemplateBinding LoadingText}"/>
+                        <Border x:Name="MaskLayer" CornerRadius="4" Background="#ccc" Visibility="Hidden" Opacity=".3" Panel.ZIndex="2"></Border>
+                        <Border x:Name="BottomBorder" CornerRadius="4" BorderThickness="0,0,0,1" BorderBrush="#000" Opacity=".1" ></Border>
+                    </Grid>
+
                     <ControlTemplate.Triggers>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>

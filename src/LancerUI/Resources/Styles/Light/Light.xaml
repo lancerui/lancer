@@ -26,5 +26,7 @@
         <ResourceDictionary Source="/LancerUI;component/Resources/Styles/Light/LUSwitch.xaml" />
         <ResourceDictionary Source="/LancerUI;component/Resources/Styles/Light/LUSelect.xaml" />
         <ResourceDictionary Source="/LancerUI;component/Resources/Styles/Light/LUSelectorBar.xaml" />
+        <ResourceDictionary Source="/LancerUI;component/Resources/Styles/Light/LUSeparator.xaml" />
+        <ResourceDictionary Source="/LancerUI;component/Resources/Styles/Light/LUMenu.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

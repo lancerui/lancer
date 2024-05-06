@@ -9,6 +9,7 @@
         <ResourceDictionary Source="/LancerUI;component/Themes/Navigation/NavigationItem.xaml" />
         <ResourceDictionary Source="/LancerUI;component/Themes/Buttons/LUButton.xaml" />
         <ResourceDictionary Source="/LancerUI;component/Themes/Buttons/LUConfirmButton.xaml" />
+        <ResourceDictionary Source="/LancerUI;component/Themes/Buttons/LUFlyoutButton.xaml" />
         <ResourceDictionary Source="/LancerUI;component/Themes/Spinner/LUSpinner.xaml" />
         <ResourceDictionary Source="/LancerUI;component/Themes/Input/LUInput.xaml" />
         <ResourceDictionary Source="/LancerUI;component/Themes/Input/LUPasswordInput.xaml" />
@@ -17,5 +18,8 @@
         <ResourceDictionary Source="/LancerUI;component/Themes/Select/LUSelectItem.xaml" />
         <ResourceDictionary Source="/LancerUI;component/Themes/SelectorBar/LUSelectorBar.xaml" />
         <ResourceDictionary Source="/LancerUI;component/Themes/SelectorBar/LUSelectorBarItem.xaml" />
+        <ResourceDictionary Source="/LancerUI;component/Themes/Menu/LUMenu.xaml" />
+        <ResourceDictionary Source="/LancerUI;component/Themes/Menu/LUMenuItem.xaml" />
+        <ResourceDictionary Source="/LancerUI;component/Themes/Separator/LUSeparator.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

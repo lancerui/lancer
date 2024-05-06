@@ -17,14 +17,14 @@
                                 <!--文本2-->
                                 <ColumnDefinition Width="auto"/>
                             </Grid.ColumnDefinitions>
-                            <Rectangle x:Name="Mark" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="#5f5f60" RadiusX="5" RadiusY="5" Width="5" Height="5" Visibility="Collapsed"/>
+                            <Rectangle x:Name="Mark" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="{DynamicResource LUSelectItemMarkBrush}" RadiusX="5" RadiusY="5" Width="5" Height="5" Visibility="Collapsed"/>
                             <base:Icon x:Name="Icon" Margin="10,0,0,0" VerticalAlignment="Center" Grid.Column="1" FontSize="16" Symbol="{TemplateBinding Icon}"/>
                             <TextBlock Grid.Column="2" Margin="10,0,10,0" VerticalAlignment="Center" Text="{TemplateBinding Text}"/>
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="Border" Property="Background" Value="#f0f0f0"/>
+                            <Setter TargetName="Border" Property="Background" Value="{DynamicResource LUSelectItemHoverBgBrush}"/>
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
                             <Setter TargetName="Border" Property="Opacity" Value=".6"/>
