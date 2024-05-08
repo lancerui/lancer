@@ -3,7 +3,7 @@
                     xmlns:s="clr-namespace:System;assembly=mscorlib">
     <s:String x:Key="ThemeName">Light</s:String>
     <!--【主题颜色】-->
-    <Color x:Key="ThemeColor">#3d3d3d</Color>
+    <Color x:Key="ThemeColor">#00ba6d</Color>
     <!--主题颜色笔刷-->
     <SolidColorBrush x:Key="ThemeBrush" Color="{StaticResource ThemeColor}" />
     

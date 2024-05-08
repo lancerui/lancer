@@ -7,7 +7,7 @@
         xmlns:lu="https://github.com/lancerui/lancer"
         xmlns:Base="clr-namespace:LancerUI.Controls.Base;assembly=LancerUI" xmlns:Navigation="clr-namespace:LancerUI.Controls.Navigation;assembly=LancerUI" xmlns:Buttons="clr-namespace:LancerUI.Controls.Buttons;assembly=LancerUI" xmlns:input="clr-namespace:LancerUI.Controls.Input;assembly=LancerUI" xmlns:spiner="clr-namespace:LancerUI.Controls.Spinner;assembly=LancerUI" xmlns:switch="clr-namespace:LancerUI.Controls.Switch;assembly=LancerUI" xmlns:select="clr-namespace:LancerUI.Controls.Select;assembly=LancerUI" xmlns:selectorbar="clr-namespace:LancerUI.Controls.SelectorBar;assembly=LancerUI" xmlns:menu="clr-namespace:LancerUI.Controls.Menu;assembly=LancerUI" xmlns:separator="clr-namespace:LancerUI.Controls.Separator;assembly=LancerUI" x:Class="LancerUI.Demo.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" >
+        Title="MainWindow" Height="450" Width="800" Icon="/ICON V1 CIRCLE.png" >
     <lu:LUWindow.TitleBarMainContent>
         <Grid>
             <TextBox HorizontalAlignment="Center" Width="200" Height="28"/>
@@ -24,9 +24,9 @@
         <!--<Navigation:Navigation HorizontalAlignment="Left" Margin="44,74,0,0" VerticalAlignment="Top" ItemsSource="{Binding MenuItems}" SelectedIndex="2" DisplayMemberPath="Title">
         </Navigation:Navigation>-->
 
-        <Navigation:Navigation SelectedIndex="3" HorizontalAlignment="Left" VerticalAlignment="Top" >
+        <Navigation:Navigation  HorizontalAlignment="Left" VerticalAlignment="Top" >
 
-            <Navigation:NavigationItem Title="A" Icon="Home" SelectedIcon="HomeFilled" Command="{Binding HomeCommand}"/>
+            <Navigation:NavigationItem Title="A" Icon="Home" SelectedIcon="HomeFilled"/>
             <Navigation:NavigationItem Title="B" Icon="Games" SelectedIcon="GamesFilled" />
         </Navigation:Navigation>
         <Grid Grid.Column="1" Background="White">

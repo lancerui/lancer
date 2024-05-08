@@ -8,7 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="ICON V1 CIRCLE.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="ICON V1 CIRCLE.ico" />
+    <Resource Include="ICON V1 CIRCLE.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>

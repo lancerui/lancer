@@ -3,7 +3,7 @@
     <!--主边框色-->
     <SolidColorBrush x:Key="LUInputMainBorderBrush" Color="#e5e5e5"/>
     <!--副边框色-->
-    <SolidColorBrush x:Key="LUInputSubBorderBrush" Color="#868686"/>
+    <SolidColorBrush x:Key="LUInputSubBorderBrush" Color="#c9ccd1"/>
     <!--前景色-->
     <SolidColorBrush x:Key="LUInputForegroundBrush" Color="#1b1b1b" />
     <!--输入框默认背景-->

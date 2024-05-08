@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/LancerUI;component/Resources/Styles/Light/LUButton.xaml" />
+        <ResourceDictionary Source="/LancerUI;component/Resources/Styles/Light/LUWindow.xaml" />
+        <ResourceDictionary Source="/LancerUI;component/Resources/Styles/Light/Navigation.xaml" />
+        <ResourceDictionary Source="/LancerUI;component/Resources/Styles/Light/LUInput.xaml" />
+        <ResourceDictionary Source="/LancerUI;component/Resources/Styles/Light/LUSwitch.xaml" />
+        <ResourceDictionary Source="/LancerUI;component/Resources/Styles/Light/LUSelect.xaml" />
+        <ResourceDictionary Source="/LancerUI;component/Resources/Styles/Light/LUSelectorBar.xaml" />
+        <ResourceDictionary Source="/LancerUI;component/Resources/Styles/Light/LUSeparator.xaml" />
+        <ResourceDictionary Source="/LancerUI;component/Resources/Styles/Light/LUMenu.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

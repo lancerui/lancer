@@ -43,8 +43,18 @@ namespace LancerUI.Controls.Navigation
         private static void OnSelectedIndexChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var control = d as Navigation;
-            control.ScrollActiveBlockToCurrentIndex();
+            if (e.NewValue != e.OldValue)
+            {
+                control.ScrollActiveBlockToCurrentIndex();
+            }
         }
+        public object SelectedItem
+        {
+            get => GetValue(SelectedItemProperty);
+            set => SetValue(SelectedItemProperty, value);
+        }
+        public static readonly DependencyProperty SelectedItemProperty =
+            DependencyProperty.Register("SelectedItem", typeof(object), typeof(Navigation), new PropertyMetadata(null, new PropertyChangedCallback(OnSelectedIndexChanged)));
 
         public Navigation()
         {
@@ -78,10 +88,8 @@ namespace LancerUI.Controls.Navigation
         /// 获取SelectedIndex目标信息
         /// </summary>
         /// <returns></returns>
-        private NavigationInfo GetSelectedIndexItemInfo()
+        private NavigationInfo GetSelectedItemInfo()
         {
-            SelectedIndex = SelectedIndex > Items.Count - 1 ? Items.Count - 1 : SelectedIndex;
-
             double itemActualHeight = 0;
             double itemY = 0;
             NavigationItem control = null;
@@ -89,19 +97,33 @@ namespace LancerUI.Controls.Navigation
             {
                 if (ItemsSource == null)
                 {
-                    var item = (Items[SelectedIndex] as NavigationItem);
-                    Point relativePoint = item.TransformToAncestor(this).Transform(new Point(0, 0));
-                    itemY = relativePoint.Y;
-                    itemActualHeight = item.ActualHeight;
-                    control = item;
+                    //  非绑定模式
+                    if (SelectedIndex >= 0 && SelectedIndex < Items.Count)
+                    {
+                        var item = (Items[SelectedIndex] as NavigationItem);
+                        if (item != null)
+                        {
+                            Point relativePoint = item.TransformToAncestor(this).Transform(new Point(0, 0));
+                            itemY = relativePoint.Y;
+                            itemActualHeight = item.ActualHeight;
+                            control = item;
+                        }
+                    }
                 }
                 else
                 {
-                    var item = ItemContainerGenerator.ContainerFromItem(Items[SelectedIndex]) as ContentPresenter;
-                    Point relativePoint = item.TransformToAncestor(this).Transform(new Point(0, 0));
-                    itemY = relativePoint.Y;
-                    itemActualHeight = item.ActualHeight;
-                    control = VisualTreeHelper.GetChild(item, 0) as NavigationItem;
+                    //  绑定模式
+                    if (SelectedItem != null)
+                    {
+                        var item = ItemContainerGenerator.ContainerFromItem(SelectedItem) as ContentPresenter;
+                        if (item != null)
+                        {
+                            Point relativePoint = item.TransformToAncestor(this).Transform(new Point(0, 0));
+                            itemY = relativePoint.Y;
+                            itemActualHeight = item.ActualHeight;
+                            control = VisualTreeHelper.GetChild(item, 0) as NavigationItem;
+                        }
+                    }
                 }
             }
 
@@ -120,7 +142,8 @@ namespace LancerUI.Controls.Navigation
         /// </summary>
         private void SetActiveBlcokDefaultIndex()
         {
-            var itemInfo = GetSelectedIndexItemInfo();
+            var itemInfo = GetSelectedItemInfo();
+            if (itemInfo.Control == null) return;
             //  设定初始坐标
             double defaultY = itemInfo.Y + (itemInfo.Height / 2) - _activeBlock.ActualHeight / 2;
 
@@ -131,6 +154,8 @@ namespace LancerUI.Controls.Navigation
                 tfg.Children.Add(new ScaleTransform() { ScaleX = 1, ScaleY = 1 });
                 _activeBlock.RenderTransform = tfg;
             }
+            itemInfo.Control.IsSelected = true;
+            _lastSelectedItem = itemInfo.Control;
         }
         #endregion
 
@@ -179,12 +204,16 @@ namespace LancerUI.Controls.Navigation
             if (ItemsSource == null)
             {
                 //  从UI中获取索引
-                SelectedIndex = Items.IndexOf(navigationItem);
+                var index=Items.IndexOf(navigationItem);
+                //if (index == SelectedIndex) return;
+                SelectedIndex = index;
             }
             else
             {
                 //  从绑定中获取索引
-                SelectedIndex = Items.IndexOf(e.Parameter);
+                //SelectedIndex = Items.IndexOf(e.Parameter);
+                //if (e.Parameter == SelectedItem) return;
+                SelectedItem = e.Parameter;
             }
         }
 
@@ -193,7 +222,8 @@ namespace LancerUI.Controls.Navigation
         {
             if (!IsLoaded) return;
 
-            var itemInfo = GetSelectedIndexItemInfo();
+            var itemInfo = GetSelectedItemInfo();
+            if (itemInfo.Control == null) return;
 
             //  更新子项选中状态
             itemInfo.Control.IsSelected = true;
