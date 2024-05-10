@@ -7,7 +7,7 @@ using System.Windows.Media;
 
 namespace LancerUI.Controls.Chart.Model
 {
-    public class ChartLineItem
+    public class ChartItem
     {
         public double[] Values { get; set; }
         public string Label { get; set; }

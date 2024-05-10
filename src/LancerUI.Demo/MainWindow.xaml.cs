@@ -72,23 +72,51 @@ namespace LancerUI.Demo
         public ObservableCollection<SelectItemModel> LUSelectItems { get; set; }
         public SelectItemModel SelectedItem { get; set; }
         public Command HomeCommand { get; set; }
-        public List<ChartLineItem> ChartData { get; set; } = new List<ChartLineItem>();
+        public List<ChartItem> ChartData { get; set; } = new List<ChartItem>();
         public string[] ChartLabels { get; set; } = new string[] { "周一", "周二", "周三", "周四", "周五", "周六", "周日" };
         public MainWindow()
         {
             InitializeComponent();
-
-            ChartData.Add(new ChartLineItem()
+            ChartData.Add(new ChartItem()
             {
-                ColorBrush= new SolidColorBrush(Colors.SkyBlue),
-                Label ="使用时长",
+                ColorBrush = new SolidColorBrush(Colors.SkyBlue),
+                Label = "使用时长",
                 Values = new double[] { 50, 3, 3, 4, 15, 2, 8 }
             });
-            ChartData.Add(new ChartLineItem()
+            ChartData.Add(new ChartItem()
             {
                 Label = "空闲",
                 Values = new double[] { 132, 2, 3, 4, 5, 6, 150 }
             });
+            ChartData.Add(new ChartItem()
+            {
+                ColorBrush = new SolidColorBrush(Colors.Red),
+                Label = "AA",
+                Values = new double[] { 32, 23, 13, 4, 6, 30, 18 }
+            });
+            ChartData.Add(new ChartItem()
+            {
+                ColorBrush = new SolidColorBrush(Colors.Green),
+                Label = "BB",
+                Values = new double[] { 10, 90, 50, 2, 3, 3, 12 }
+            });
+            //ChartData.Add(new ChartItem()
+            //{
+            //    ColorBrush= new SolidColorBrush(Colors.SkyBlue),
+            //    Label ="使用时长",
+            //    Values = new double[] { 50, 30, 3, 4, 15, 2, 8 }
+            //});
+            //ChartData.Add(new ChartItem()
+            //{
+            //    Label = "空闲",
+            //    Values = new double[] { 132, 20, 3, 4, 5, 6, 150 }
+            //});
+            //ChartData.Add(new ChartItem()
+            //{
+            //    ColorBrush = new SolidColorBrush(Colors.Red),
+            //    Label = "测试",
+            //    Values = new double[] { 50, 10, 3, 250, 1, 9, 83 }
+            //});
             //var chartItem = new ChartLineItem();
             //var values = new double[31];
             //var labels = new string[31];

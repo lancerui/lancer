@@ -46,13 +46,13 @@ namespace LancerUI.Controls.Chart
         }
         public static readonly DependencyProperty GridLineBrushProperty =
             DependencyProperty.Register("GridLineBrush", typeof(SolidColorBrush), typeof(LUChartLine), new PropertyMetadata(new SolidColorBrush(Colors.Black)));
-        public List<ChartLineItem> Data
+        public List<ChartItem> Data
         {
-            get { return (List<ChartLineItem>)GetValue(DataProperty); }
+            get { return (List<ChartItem>)GetValue(DataProperty); }
             set { SetValue(DataProperty, value); }
         }
         public static readonly DependencyProperty DataProperty =
-            DependencyProperty.Register("Data", typeof(List<ChartLineItem>), typeof(LUChartLine), new PropertyMetadata(null));
+            DependencyProperty.Register("Data", typeof(List<ChartItem>), typeof(LUChartLine), new PropertyMetadata(null));
         public string[] Labels
         {
             get { return (string[])GetValue(LabelsProperty); }
@@ -96,7 +96,16 @@ namespace LancerUI.Controls.Chart
         }
         public static readonly DependencyProperty LabelsBrushProperty =
             DependencyProperty.Register("LabelsBrush", typeof(SolidColorBrush), typeof(LUChartLine), new PropertyMetadata(new SolidColorBrush(Colors.Black)));
-
+        /// <summary>
+        /// 是否显示图例
+        /// </summary>
+        public bool IsLegendVisible
+        {
+            get { return (bool)GetValue(IsLegendVisibleProperty); }
+            set { SetValue(IsLegendVisibleProperty, value); }
+        }
+        public static readonly DependencyProperty IsLegendVisibleProperty =
+            DependencyProperty.Register("IsLegendVisible", typeof(bool), typeof(LUChartLine), new PropertyMetadata(true));
 
         private Canvas _canvas;
         private Border _canvasBorder;
@@ -117,14 +126,14 @@ namespace LancerUI.Controls.Chart
         public LUChartLine()
         {
             DefaultStyleKey = typeof(LUChartLine);
-            Unloaded += LUChartLine_Unloaded;
+            //Unloaded += LUChartLine_Unloaded;
         }
 
-        private void LUChartLine_Unloaded(object sender, RoutedEventArgs e)
-        {
-            Unloaded -= LUChartLine_Unloaded;
-            UnBindingEvent();
-        }
+        //private void LUChartLine_Unloaded(object sender, RoutedEventArgs e)
+        //{
+        //    Unloaded -= LUChartLine_Unloaded;
+        //    UnBindingEvent();
+        //}
 
         protected override void OnRenderSizeChanged(SizeChangedInfo sizeInfo)
         {
@@ -425,7 +434,6 @@ namespace LancerUI.Controls.Chart
                 _canvas.Children.Add(line);
                 _canvas.Children.Add(bgLayer);
             }
-            Debug.WriteLine("最大值：" + MaxValue + "间隔：" + margin + "画布宽高：" + _drawMaxX + "（" + _canvas.ActualWidth + "）x" + _drawMaxY);
         }
 
         private void ResponsePointArea_MouseLeave(object sender, MouseEventArgs e)
@@ -446,7 +454,6 @@ namespace LancerUI.Controls.Chart
 
             var responsePointArea = (Rectangle)sender;
             var valueInfo = (ValueInfo)responsePointArea.Tag;
-            Debug.WriteLine("进入:" + valueInfo.Value);
             _isCanMoveXLine = false;
             isCanMove = false;
             responsePointArea.Fill = valueInfo.ColorBrush;
@@ -480,18 +487,35 @@ namespace LancerUI.Controls.Chart
             if (Labels == null || Labels.Length == 0) return;
 
             double margin = _drawCanvasWidth / (Labels.Length - 1);
+
+            //  计算标签预估宽度
+            string maxLengthLabel = Labels.OrderByDescending(x => x.Length).First();
+            var preLabelText = new TextBlock
+            {
+                Text = maxLengthLabel,
+                FontSize = 12,
+            };
+            preLabelText.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
+
+            //  是否省略部分标签
+            double preLabelWidth = preLabelText.DesiredSize.Width * Labels.Length + Labels.Length * 4;
+            bool isEllipsis = preLabelWidth >= _drawCanvasWidth;
+
             for (int i = 0; i < Labels.Length; i++)
             {
-                var text = new TextBlock
+                if (!isEllipsis || (isEllipsis && i % 2 == 0))
                 {
-                    Text = Labels[i],
-                    FontSize = 12,
-                    Foreground = LabelsBrush
-                };
-                text.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
-                text.SetValue(Canvas.LeftProperty, i * margin + _drawStartX - text.DesiredSize.Width / 2);
-                text.SetValue(Canvas.TopProperty, _drawMaxY + 5);
-                _canvas.Children.Add(text);
+                    var text = new TextBlock
+                    {
+                        Text = Labels[i],
+                        FontSize = 12,
+                        Foreground = LabelsBrush
+                    };
+                    text.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
+                    text.SetValue(Canvas.LeftProperty, i * margin + _drawStartX - text.DesiredSize.Width / 2);
+                    text.SetValue(Canvas.TopProperty, _drawMaxY + 5);
+                    _canvas.Children.Add(text);
+                }
             }
         }
         /// <summary>

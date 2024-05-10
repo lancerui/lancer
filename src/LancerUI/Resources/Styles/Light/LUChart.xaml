@@ -7,5 +7,7 @@
 
     <SolidColorBrush x:Key="LUChartPopupBgBrush" Color="#fff" />
     <SolidColorBrush x:Key="LUChartPopupBorderBrush" Color="#eaeaea" />
+    <SolidColorBrush x:Key="LUChartPopupTextBrush" Color="#5c5c5c" />
+    <SolidColorBrush x:Key="LUChartPopupValueBrush" Color="#000" />
 
 </ResourceDictionary>

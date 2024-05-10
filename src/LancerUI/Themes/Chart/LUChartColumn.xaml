@@ -2,14 +2,14 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:LancerUI.Controls.Chart"
                     xmlns:utils="clr-namespace:LancerUI.Utils">
-    <Style TargetType="{x:Type local:LUChartLine}">
+    <Style TargetType="{x:Type local:LUChartColumn}">
         <Setter Property="GridLineBrush" Value="{DynamicResource LUChartGridLineBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource LUChartBorderBrush}"/>
         <Setter Property="LabelsBrush" Value="{DynamicResource LUChartLabelsBrush}"/>
-        <Setter Property="PositionLinesBrush" Value="{DynamicResource LUChartPositionLinesBrush}"/>
+        <Setter Property="ScalePositionLineBrush" Value="{DynamicResource LUChartPositionLinesBrush}"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type local:LUChartLine}">
+                <ControlTemplate TargetType="{x:Type local:LUChartColumn}">
                     <Border>
                         <Grid>
                             <Grid.RowDefinitions>
@@ -23,16 +23,41 @@
                                     x:Name="PART_Popup"
                                     AllowsTransparency="True"
                                     StaysOpen="True"
-                                    PopupAnimation="Fade">
-                                        <Border x:Name="PART_Popup_Border" Background="{DynamicResource LUChartPopupBgBrush}" BorderBrush="{DynamicResource LUChartPopupBorderBrush}" BorderThickness="1" CornerRadius="6" Padding="5" Margin="10">
+                                    PopupAnimation="Fade"
+                                    SnapsToDevicePixels="True">
+                                        <Border x:Name="PART_Popup_Border" Background="{DynamicResource LUChartPopupBgBrush}" BorderBrush="{DynamicResource LUChartPopupBorderBrush}" BorderThickness="1" CornerRadius="6" Padding="10" Margin="10">
                                             <Border.Effect>
                                                 <DropShadowEffect ShadowDepth="0" BlurRadius="10" Color="#000" Direction="0" Opacity=".1"/>
                                             </Border.Effect>
-                                            <StackPanel Orientation="Horizontal">
-                                                <TextBlock VerticalAlignment="Center" Foreground="{DynamicResource LUChartPopupTextBrush}" Text="{TemplateBinding SelectedPointLabel}"/>
-                                                <TextBlock VerticalAlignment="Center" Foreground="{DynamicResource LUChartPopupValueBrush}" FontWeight="Bold" Text="{TemplateBinding SelectedPointValue}" FontSize="14" Margin="5,0"/>
-                                                <TextBlock VerticalAlignment="Center" Foreground="{DynamicResource LUChartPopupTextBrush}" Text="{TemplateBinding Unit}"/>
-                                            </StackPanel>
+                                            <ItemsControl ItemsSource="{TemplateBinding SelectedColumnItemsSource}">
+                                                <ItemsControl.ItemsPanel>
+                                                    <ItemsPanelTemplate>
+                                                        <StackPanel/>
+                                                    </ItemsPanelTemplate>
+                                                </ItemsControl.ItemsPanel>
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Grid>
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="auto"/>
+                                                                <ColumnDefinition Width="auto"/>
+                                                                <ColumnDefinition Width="auto"/>
+                                                                <ColumnDefinition Width="auto"/>
+                                                            </Grid.ColumnDefinitions>
+                                                            <Rectangle Fill="{Binding ColorBrush}" Width="10" Height="10" RadiusX="2" RadiusY="2"/>
+                                                            <TextBlock VerticalAlignment="Center" Foreground="{DynamicResource LUChartPopupTextBrush}" Grid.Column="1" Text="{Binding Label}" Margin="5,0"/>
+                                                            <TextBlock VerticalAlignment="Center" Foreground="{DynamicResource LUChartPopupValueBrush}" Margin="0,0,5,0" FontWeight="Bold" Grid.Column="2" Text="{Binding ValueString}"/>
+                                                            <TextBlock VerticalAlignment="Center" Foreground="{DynamicResource LUChartPopupTextBrush}" Grid.Column="3" Text="{Binding Path=Unit,RelativeSource={RelativeSource AncestorType=local:LUChartColumn}}"/>
+
+                                                        </Grid>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                            </ItemsControl>
+                                            <!--<StackPanel Orientation="Horizontal">-->
+                                            <!--<TextBlock VerticalAlignment="Center" Text="{TemplateBinding SelectedPointLabel}"/>
+                                            <TextBlock VerticalAlignment="Center" FontWeight="Bold" Text="{TemplateBinding SelectedPointValue}" FontSize="14" Margin="5,0"/>
+                                            <TextBlock VerticalAlignment="Center" Text="{TemplateBinding Unit}"/>-->
+                                            <!--</StackPanel>-->
                                         </Border>
                                     </Popup>
                                 </Grid>
@@ -59,7 +84,7 @@
                                                     <ColumnDefinition Width="auto"/>
                                                     <ColumnDefinition Width="auto"/>
                                                 </Grid.ColumnDefinitions>
-                                                <Rectangle x:Name="ColorRect" Fill="{Binding ColorBrush}" Width="12" Height="3" RadiusX="2" RadiusY="2" VerticalAlignment="Center"/>
+                                                <Rectangle x:Name="ColorRect" Fill="{Binding ColorBrush}" Width="10" Height="10" RadiusX="2" RadiusY="2" VerticalAlignment="Center"/>
                                                 <TextBlock Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" Text="{Binding Label}" Foreground="{DynamicResource LUChartPopupTextBrush}"/>
                                             </Grid>
                                             <DataTemplate.Triggers>
@@ -73,6 +98,11 @@
                             </Border>
                         </Grid>
                     </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsLegendVisible" Value="False">
+                            <Setter TargetName="LegendBorder" Property="Visibility" Value="Collapsed"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

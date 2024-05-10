@@ -271,18 +271,24 @@
                 </TabItem>
                 <!--图表 chart-->
                 <TabItem Header="图表 Chart">
-                    <Grid Margin="20">
-
-                        <chart:LUChartLine Unit="小时" Data="{Binding ChartData}" Labels="{Binding ChartLabels}"/>
-                    </Grid>
-                    <!--<ScrollViewer Padding="10">
+                    
+                    <ScrollViewer Padding="10">
                         <StackPanel Orientation="Horizontal">
                             <StackPanel HorizontalAlignment="Left">
                                 <TextBlock Text="折线"/>
-                                <chart:LUChartLine Width="200" Height="200"/>
+                                <chart:LUChartLine Margin="0,10,0,0" Width="350" Height="253" Unit="小时" Data="{Binding ChartData}" Labels="{Binding ChartLabels}"/>
+                               
+                            </StackPanel>
+                            <StackPanel HorizontalAlignment="Left">
+                                <TextBlock Text="柱形"/>
+
+                                <TextBlock Text="Combine" Margin="0,10,0,0" />
+                                <chart:LUChartColumn DisplayType="Combine" Margin="0,0,0,0" Width="350" Height="253" Unit="小时" Data="{Binding ChartData}" Labels="{Binding ChartLabels}"/>
+                                <TextBlock Text="Stack" Margin="0,20,0,0" />
+                                <chart:LUChartColumn DisplayType="Stack" IsLegendVisible="False" Margin="0,0,0,0" Width="350" Height="253" Unit="小时" Data="{Binding ChartData}" Labels="{Binding ChartLabels}"/>
                             </StackPanel>
                         </StackPanel>
-                    </ScrollViewer>-->
+                    </ScrollViewer>
                 </TabItem>
             </TabControl>
         </Grid>
