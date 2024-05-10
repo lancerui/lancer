@@ -1,4 +1,5 @@
 ﻿using LancerUI.Controls.Buttons;
+using LancerUI.Controls.Chart.Model;
 using LancerUI.Controls.Types;
 using LancerUI.Controls.Windows;
 using LancerUI.Extensions;
@@ -65,16 +66,40 @@ namespace LancerUI.Demo
         public class SelectItemModel
         {
             public string Text { get; set; }
-            public IconSymbol Icon{ get; set; }
+            public IconSymbol Icon { get; set; }
         }
         public ObservableCollection<MenuItem> MenuItems { get; set; }
         public ObservableCollection<SelectItemModel> LUSelectItems { get; set; }
         public SelectItemModel SelectedItem { get; set; }
         public Command HomeCommand { get; set; }
-
+        public List<ChartLineItem> ChartData { get; set; } = new List<ChartLineItem>();
+        public string[] ChartLabels { get; set; } = new string[] { "周一", "周二", "周三", "周四", "周五", "周六", "周日" };
         public MainWindow()
         {
             InitializeComponent();
+
+            ChartData.Add(new ChartLineItem()
+            {
+                ColorBrush= new SolidColorBrush(Colors.SkyBlue),
+                Label ="使用时长",
+                Values = new double[] { 50, 3, 3, 4, 15, 2, 8 }
+            });
+            ChartData.Add(new ChartLineItem()
+            {
+                Label = "空闲",
+                Values = new double[] { 132, 2, 3, 4, 5, 6, 150 }
+            });
+            //var chartItem = new ChartLineItem();
+            //var values = new double[31];
+            //var labels = new string[31];
+            //for (int i = 0; i < 31; i++)
+            //{
+            //    values[i] = i;
+            //    labels[i] = i.ToString();
+            //}
+            //chartItem.Values = values;
+            //ChartData.Add(chartItem);
+            //ChartLabels = labels;
 
             HomeCommand = new Command((parameter) =>
             {
@@ -95,7 +120,7 @@ namespace LancerUI.Demo
                     Icon= IconSymbol.Games,
                     SelectedIcon= IconSymbol.GamesFilled
                 },
-               
+
             };
 
             LUSelectItems = new ObservableCollection<SelectItemModel>()
@@ -126,7 +151,7 @@ namespace LancerUI.Demo
 
         private void LUButton_Click(object sender, RoutedEventArgs e)
         {
-            
+
             MessageBox.Show("删除成功（无作用弹窗）");
         }
     }

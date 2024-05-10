@@ -10,5 +10,6 @@
         <ResourceDictionary Source="/LancerUI;component/Resources/Styles/Light/LUSelectorBar.xaml" />
         <ResourceDictionary Source="/LancerUI;component/Resources/Styles/Light/LUSeparator.xaml" />
         <ResourceDictionary Source="/LancerUI;component/Resources/Styles/Light/LUMenu.xaml" />
+        <ResourceDictionary Source="/LancerUI;component/Resources/Styles/Light/LUChart.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

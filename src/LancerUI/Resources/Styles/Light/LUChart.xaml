@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <SolidColorBrush x:Key="LUChartGridLineBrush" Color="#eeefef" />
+    <SolidColorBrush x:Key="LUChartBorderBrush" Color="#ccc" />
+    <SolidColorBrush x:Key="LUChartPositionLinesBrush" Color="{DynamicResource ThemeColor}" />
+    <SolidColorBrush x:Key="LUChartLabelsBrush" Color="#777" />
+
+    <SolidColorBrush x:Key="LUChartPopupBgBrush" Color="#fff" />
+    <SolidColorBrush x:Key="LUChartPopupBorderBrush" Color="#eaeaea" />
+
+</ResourceDictionary>

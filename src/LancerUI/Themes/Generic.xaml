@@ -21,5 +21,6 @@
         <ResourceDictionary Source="/LancerUI;component/Themes/Menu/LUMenu.xaml" />
         <ResourceDictionary Source="/LancerUI;component/Themes/Menu/LUMenuItem.xaml" />
         <ResourceDictionary Source="/LancerUI;component/Themes/Separator/LUSeparator.xaml" />
+        <ResourceDictionary Source="/LancerUI;component/Themes/Chart/LUChartLine.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
