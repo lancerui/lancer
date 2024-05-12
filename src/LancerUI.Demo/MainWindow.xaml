@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LancerUI.Demo"
         xmlns:lu="https://github.com/lancerui/lancer"
-        xmlns:Base="clr-namespace:LancerUI.Controls.Base;assembly=LancerUI" xmlns:Navigation="clr-namespace:LancerUI.Controls.Navigation;assembly=LancerUI" xmlns:Buttons="clr-namespace:LancerUI.Controls.Buttons;assembly=LancerUI" xmlns:input="clr-namespace:LancerUI.Controls.Input;assembly=LancerUI" xmlns:spiner="clr-namespace:LancerUI.Controls.Spinner;assembly=LancerUI" xmlns:switch="clr-namespace:LancerUI.Controls.Switch;assembly=LancerUI" xmlns:select="clr-namespace:LancerUI.Controls.Select;assembly=LancerUI" xmlns:selectorbar="clr-namespace:LancerUI.Controls.SelectorBar;assembly=LancerUI" xmlns:menu="clr-namespace:LancerUI.Controls.Menu;assembly=LancerUI" xmlns:separator="clr-namespace:LancerUI.Controls.Separator;assembly=LancerUI" xmlns:chart="clr-namespace:LancerUI.Controls.Chart;assembly=LancerUI" x:Class="LancerUI.Demo.MainWindow"
+        xmlns:Base="clr-namespace:LancerUI.Controls.Base;assembly=LancerUI" xmlns:Navigation="clr-namespace:LancerUI.Controls.Navigation;assembly=LancerUI" xmlns:Buttons="clr-namespace:LancerUI.Controls.Buttons;assembly=LancerUI" xmlns:input="clr-namespace:LancerUI.Controls.Input;assembly=LancerUI" xmlns:spiner="clr-namespace:LancerUI.Controls.Spinner;assembly=LancerUI" xmlns:switch="clr-namespace:LancerUI.Controls.Switch;assembly=LancerUI" xmlns:select="clr-namespace:LancerUI.Controls.Select;assembly=LancerUI" xmlns:selectorbar="clr-namespace:LancerUI.Controls.SelectorBar;assembly=LancerUI" xmlns:menu="clr-namespace:LancerUI.Controls.Menu;assembly=LancerUI" xmlns:separator="clr-namespace:LancerUI.Controls.Separator;assembly=LancerUI" xmlns:chart="clr-namespace:LancerUI.Controls.Chart;assembly=LancerUI" xmlns:datetime="clr-namespace:LancerUI.Controls.DateTime;assembly=LancerUI" x:Class="LancerUI.Demo.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Icon="/ICON V1 CIRCLE.png" >
     <lu:LUWindow.TitleBarMainContent>
@@ -22,7 +22,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <!--<Navigation:Navigation HorizontalAlignment="Left" Margin="44,74,0,0" VerticalAlignment="Top" ItemsSource="{Binding MenuItems}" SelectedIndex="2" DisplayMemberPath="Title">
-        </Navigation:Navigation>-->
+     </Navigation:Navigation>-->
 
         <Navigation:Navigation  HorizontalAlignment="Left" VerticalAlignment="Top" >
 
@@ -30,7 +30,16 @@
             <Navigation:NavigationItem Title="B" Icon="Games" SelectedIcon="GamesFilled" />
         </Navigation:Navigation>
         <Grid Grid.Column="1" Background="White">
-            <TabControl>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Margin="10">
+                <StackPanel Orientation="Horizontal">
+                    <Buttons:LUButton Content="切换语言/Change Language" Click="LUButton_Click_1"/>
+                </StackPanel>
+            </Grid>
+            <TabControl Grid.Row="1">
                 <!--按钮-->
                 <TabItem Header="按钮 Button">
                     <ScrollViewer>
@@ -271,13 +280,13 @@
                 </TabItem>
                 <!--图表 chart-->
                 <TabItem Header="图表 Chart">
-                    
+
                     <ScrollViewer Padding="10">
                         <StackPanel Orientation="Horizontal">
                             <StackPanel HorizontalAlignment="Left">
                                 <TextBlock Text="折线"/>
                                 <chart:LUChartLine Margin="0,10,0,0" Width="350" Height="253" Unit="小时" Data="{Binding ChartData}" Labels="{Binding ChartLabels}"/>
-                               
+
                             </StackPanel>
                             <StackPanel HorizontalAlignment="Left">
                                 <TextBlock Text="柱形"/>
@@ -286,6 +295,24 @@
                                 <chart:LUChartColumn DisplayType="Combine" Margin="0,0,0,0" Width="350" Height="253" Unit="小时" Data="{Binding ChartData}" Labels="{Binding ChartLabels}"/>
                                 <TextBlock Text="Stack" Margin="0,20,0,0" />
                                 <chart:LUChartColumn DisplayType="Stack" IsLegendVisible="False" Margin="0,0,0,0" Width="350" Height="253" Unit="小时" Data="{Binding ChartData}" Labels="{Binding ChartLabels}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
+                <!--日期与时间 date & time-->
+                <TabItem Header="日期时间 DateTime">
+
+                    <ScrollViewer Padding="10">
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel HorizontalAlignment="Left">
+                                <TextBlock Text="日历"/>
+                                <datetime:LUCalendarDatePicker Margin="0,10,0,0"/>
+                                <datetime:LUCalendarDatePicker FirstDayOfWeek="Sunday" Margin="0,10,0,0"/>
+                            </StackPanel>
+                            <StackPanel HorizontalAlignment="Left" Margin="10,0,0,0">
+                                <TextBlock Text="日期选择按钮"/>
+                                <datetime:LUCalendarDatePickerButton Margin="0,10,0,0"/>
+                                <datetime:LUCalendarDatePickerButton Format="yyyy年MM月dd日" Margin="0,10,0,0"/>
                             </StackPanel>
                         </StackPanel>
                     </ScrollViewer>

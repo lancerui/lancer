@@ -11,8 +11,10 @@ namespace LancerUI.Language
     /// <summary>
     /// 语言管理
     /// </summary>
-    public class LanguageManager
+    public class LanguageHelper
     {
+        private static Lang _currentLanguage = Lang.ZHCN;
+        public static Lang CurrentLanguage { get => _currentLanguage; }
         /// <summary>
         /// 设置组件库语言
         /// </summary>
@@ -30,6 +32,26 @@ namespace LancerUI.Language
             }
 
             MergedDictionaries.Add(new ResourceDictionary { Source = new Uri($"pack://application:,,,/LancerUI;component/Resources/Language/{val_}.xaml", UriKind.RelativeOrAbsolute) });
+            _currentLanguage = val_;
+        }
+
+        public static string GetStr(string key)
+        {
+            try
+            {
+                return Application.Current.Resources[key] as string;
+            }
+            catch (Exception e)
+            {
+                return key;
+            }
+        }
+
+        public static string GetMonthStr(int month)
+        {
+            string[] monthKeys = new string[] { "Lang_Jan", "Lang_Feb", "Lang_Mar", "Lang_Apr", "Lang_May", "Lang_Jun", "Lang_Jul", "Lang_Aug", "Lang_Sep", "Lang_Oct", "Lang_Nov", "Lang_Dec" };
+
+            return GetStr(monthKeys[month - 1]);
         }
     }
 }

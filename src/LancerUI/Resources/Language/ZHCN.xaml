@@ -5,4 +5,25 @@
     <sys:String x:Key="Lang_MaximizeSysBtn">最大化</sys:String>
     <sys:String x:Key="Lang_RestoreSysBtn">向下还原</sys:String>
     <sys:String x:Key="Lang_CloseSysBtn">关闭</sys:String>
+    <sys:String x:Key="Lang_WeekSu">日</sys:String>
+    <sys:String x:Key="Lang_WeekMo">一</sys:String>
+    <sys:String x:Key="Lang_WeekTu">二</sys:String>
+    <sys:String x:Key="Lang_WeekWe">三</sys:String>
+    <sys:String x:Key="Lang_WeekTh">四</sys:String>
+    <sys:String x:Key="Lang_WeekFr">五</sys:String>
+    <sys:String x:Key="Lang_WeekSa">六</sys:String>
+    <sys:String x:Key="Lang_Jan">1月</sys:String>
+    <sys:String x:Key="Lang_Feb">2月</sys:String>
+    <sys:String x:Key="Lang_Mar">3月</sys:String>
+    <sys:String x:Key="Lang_Apr">4月</sys:String>
+    <sys:String x:Key="Lang_May">5月</sys:String>
+    <sys:String x:Key="Lang_Jun">6月</sys:String>
+    <sys:String x:Key="Lang_Jul">7月</sys:String>
+    <sys:String x:Key="Lang_Aug">8月</sys:String>
+    <sys:String x:Key="Lang_Sep">9月</sys:String>
+    <sys:String x:Key="Lang_Oct">10月</sys:String>
+    <sys:String x:Key="Lang_Nov">11月</sys:String>
+    <sys:String x:Key="Lang_Dec">12月</sys:String>
+    <sys:String x:Key="Lang_Year">年</sys:String>
+
 </ResourceDictionary>

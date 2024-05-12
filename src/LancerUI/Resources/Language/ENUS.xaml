@@ -5,4 +5,25 @@
     <sys:String x:Key="Lang_MaximizeSysBtn">Maximize</sys:String>
     <sys:String x:Key="Lang_RestoreSysBtn">Restore</sys:String>
     <sys:String x:Key="Lang_CloseSysBtn">Close</sys:String>
+    <sys:String x:Key="Lang_WeekSu">Su</sys:String>
+    <sys:String x:Key="Lang_WeekMo">Mo</sys:String>
+    <sys:String x:Key="Lang_WeekTu">Tu</sys:String>
+    <sys:String x:Key="Lang_WeekWe">We</sys:String>
+    <sys:String x:Key="Lang_WeekTh">Th</sys:String>
+    <sys:String x:Key="Lang_WeekFr">Fr</sys:String>
+    <sys:String x:Key="Lang_WeekSa">Sa</sys:String>
+
+    <sys:String x:Key="Lang_Jan">Jan</sys:String>
+    <sys:String x:Key="Lang_Feb">Feb</sys:String>
+    <sys:String x:Key="Lang_Mar">Mar</sys:String>
+    <sys:String x:Key="Lang_Apr">Apr</sys:String>
+    <sys:String x:Key="Lang_May">May</sys:String>
+    <sys:String x:Key="Lang_Jun">Jun</sys:String>
+    <sys:String x:Key="Lang_Jul">Jul</sys:String>
+    <sys:String x:Key="Lang_Aug">Aug</sys:String>
+    <sys:String x:Key="Lang_Sep">Sep</sys:String>
+    <sys:String x:Key="Lang_Oct">Oct</sys:String>
+    <sys:String x:Key="Lang_Nov">Nov</sys:String>
+    <sys:String x:Key="Lang_Dec">Dec</sys:String>
+    <sys:String x:Key="Lang_Year">Year</sys:String>
 </ResourceDictionary>

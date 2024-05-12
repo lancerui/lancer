@@ -1,0 +1,34 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:LancerUI.Controls.DateTime" xmlns:buttons="clr-namespace:LancerUI.Controls.Buttons" xmlns:base="clr-namespace:LancerUI.Controls.Base">
+    <Style TargetType="{x:Type local:LUCalendarDatePickerButton}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:LUCalendarDatePickerButton}">
+                    <Border>
+                        <Grid>
+                            <buttons:LUButton x:Name="PART_Button" Icon="Calendar" IconPosition="Right" Content="2024年5月11日"/>
+                            <Popup x:Name="PART_Popup"
+                                   AllowsTransparency="True"
+                                   Placement="Bottom"
+                                   PlacementTarget="{Binding ElementName=PART_Button}"
+                                   StaysOpen="False"
+                                   PopupAnimation="Slide">
+                                <Border
+                                    Width="300"
+                                    Margin="10">
+                                    <Border.Effect>
+                                        <DropShadowEffect ShadowDepth="0" BlurRadius="10" Color="#000" Direction="0" Opacity=".1"/>
+                                    </Border.Effect>
+                                    <local:LUCalendarDatePicker x:Name="PART_CalendarDatePicker"/>
+                                </Border>
+                            </Popup>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+</ResourceDictionary>

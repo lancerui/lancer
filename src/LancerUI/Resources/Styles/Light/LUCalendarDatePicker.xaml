@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <SolidColorBrush x:Key="LUCalendarDatePickerBroderBrush" Color="#e5e5e5" />
+    <SolidColorBrush x:Key="LUCalendarDatePickerBackgroundBrush" Color="#fff" />
+    <SolidColorBrush x:Key="LUCalendarDatePickerHeaderBroderBrush" Color="#f0f0f0" />
+    <SolidColorBrush x:Key="LUCalendarDatePickerHeaderBtnBrush" Color="#8d8d8d" />
+
+    <SolidColorBrush x:Key="LUCalendarDatePickerTextBrush" Color="#1B1B1B" />
+    <SolidColorBrush x:Key="LUCalendarDatePickerItemHoverBrush" Color="#f6f6f6" />
+    <SolidColorBrush x:Key="LUCalendarDatePickerTagBrush" Color="#8d8d8d" />
+
+</ResourceDictionary>

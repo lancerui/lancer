@@ -37,7 +37,6 @@ namespace LancerUI.Utils
             //((UIElement)sender).FindDescendant<ScrollViewer>();
             if (scrollViewer == null)
                 return;
-
             //if (Keyboard.Modifiers != ModifierKeys.Shift)
             //    return;
 

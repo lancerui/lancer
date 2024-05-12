@@ -23,5 +23,12 @@
         <ResourceDictionary Source="/LancerUI;component/Themes/Separator/LUSeparator.xaml" />
         <ResourceDictionary Source="/LancerUI;component/Themes/Chart/LUChartLine.xaml" />
         <ResourceDictionary Source="/LancerUI;component/Themes/Chart/LUChartColumn.xaml" />
+        <ResourceDictionary Source="/LancerUI;component/Controls/DateTime/LUCalendarDatePicker.xaml" />
+        <ResourceDictionary Source="/LancerUI;component/Controls/DateTime/LUCalendarDatePickerDateItem.xaml" />
+        <ResourceDictionary Source="/LancerUI;component/Controls/DateTime/LUCalendarDatePickerDateGroup.xaml" />
+        <ResourceDictionary Source="/LancerUI;component/Controls/DateTime/LUCalendarDatePickerDaysView.xaml" />
+        <ResourceDictionary Source="/LancerUI;component/Controls/DateTime/LUCalendarDatePickerMonthsView.xaml" />
+        <ResourceDictionary Source="/LancerUI;component/Controls/DateTime/LUCalendarDatePickerYearsView.xaml" />
+        <ResourceDictionary Source="/LancerUI;component/Controls/DateTime/LUCalendarDatePickerButton.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

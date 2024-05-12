@@ -12,21 +12,22 @@
         <Setter Property="Background" Value="{DynamicResource DefaultBtnBgBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource DefaultBtnBorderBrush}"/>
         <Setter Property="HoverBackground" Value="{DynamicResource DefaultBtnHoverBgBrush}"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:LUButton}">
                     <Grid>
                         <Border x:Name="BoxBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" CornerRadius="4" Background="{TemplateBinding Background}">
-                            <Grid x:Name="ContentGrid" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="{TemplateBinding Padding}">
+                            <Grid x:Name="ContentGrid" VerticalAlignment="Center" Margin="{TemplateBinding Padding}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="auto"/>
-                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="auto"/>
                                 </Grid.ColumnDefinitions>
                                 <base:Icon x:Name="Icon" Symbol="{TemplateBinding Icon}" VerticalAlignment="Center" FontSize="{TemplateBinding IconSize}" Margin="0,0,5,0"></base:Icon>
                                 <ContentPresenter 
                                 Grid.Column="1"
-                        HorizontalAlignment="Center"
+                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                         VerticalAlignment="Center"
                         RecognizesAccessKey="True"/>
                             </Grid>

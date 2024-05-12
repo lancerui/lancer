@@ -172,7 +172,7 @@ namespace LancerUI.Demo
             //  设置主题色
             //ThemeManager.SetWindowsThemeColor();
             //  设置语言
-            LanguageManager.SetLanguage();
+            LanguageHelper.SetLanguage();
 
             var test = IconSymbol.ZoomFit.String();
         }
@@ -181,6 +181,14 @@ namespace LancerUI.Demo
         {
 
             MessageBox.Show("删除成功（无作用弹窗）");
+        }
+
+        private Lang _currentLanguage = Lang.ZHCN;
+        private void LUButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            var newLanguage = _currentLanguage == Lang.ZHCN ? Lang.ENUS : Lang.ZHCN;
+            LanguageHelper.SetLanguage(newLanguage);
+            _currentLanguage = newLanguage;
         }
     }
 }
