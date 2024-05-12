@@ -18,6 +18,11 @@ namespace LancerUI.Controls.DateTime
         private readonly int MIN_YEAR = 1924;
         private readonly int MAX_YEAR = 2124;
         /// <summary>
+        /// 选择器类型
+        /// </summary>
+        public LUCalendarDatePickerDateType PickerType { get=> (LUCalendarDatePickerDateType)GetValue(PickerTypeProperty); set => SetValue(PickerTypeProperty, value); }
+        public static readonly DependencyProperty PickerTypeProperty = DependencyProperty.Register("PickerType", typeof(LUCalendarDatePickerDateType), typeof(LUCalendarDatePickerMonthsView), new PropertyMetadata(LUCalendarDatePickerDateType.Day));
+        /// <summary>
         /// 当前选中日期
         /// </summary>
         public System.DateTime SelectedDate { get => (System.DateTime)GetValue(SelectedDateProperty); set => SetValue(SelectedDateProperty, value); }

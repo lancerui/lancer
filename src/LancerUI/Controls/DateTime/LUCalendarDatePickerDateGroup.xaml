@@ -14,7 +14,7 @@
                             </ItemsControl.ItemsPanel>
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <local:LUCalendarDatePickerDateItem DisplayType="{Binding Path=DisplayType,RelativeSource={RelativeSource AncestorType=local:LUCalendarDatePickerDateGroup}}" SelectedDate="{Binding Path=SelectedDate,RelativeSource={RelativeSource AncestorType=local:LUCalendarDatePickerDateGroup}}" VisibleDate="{Binding Path=VisibleDate,RelativeSource={RelativeSource AncestorType=local:LUCalendarDatePickerDateGroup}}" Date="{Binding}"/>
+                                    <local:LUCalendarDatePickerDateItem PickerType="{Binding Path=PickerType,RelativeSource={RelativeSource AncestorType=local:LUCalendarDatePickerDateGroup}}" DisplayType="{Binding Path=DisplayType,RelativeSource={RelativeSource AncestorType=local:LUCalendarDatePickerDateGroup}}" SelectedDate="{Binding Path=SelectedDate,RelativeSource={RelativeSource AncestorType=local:LUCalendarDatePickerDateGroup}}" VisibleDate="{Binding Path=VisibleDate,RelativeSource={RelativeSource AncestorType=local:LUCalendarDatePickerDateGroup}}" Date="{Binding}"/>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>

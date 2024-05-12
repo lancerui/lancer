@@ -313,6 +313,13 @@
                                 <TextBlock Text="日期选择按钮"/>
                                 <datetime:LUCalendarDatePickerButton Margin="0,10,0,0"/>
                                 <datetime:LUCalendarDatePickerButton Format="yyyy年MM月dd日" Margin="0,10,0,0"/>
+                                <datetime:LUCalendarDatePickerButton PickerType="Month" Format="yyyy年MM月" Margin="0,10,0,0"/>
+                                <datetime:LUCalendarDatePickerButton PickerType="Year" Format="yyyy年" Margin="0,10,0,0"/>
+                            </StackPanel>
+                            <StackPanel HorizontalAlignment="Left" Margin="10,0,0,0">
+                                <TextBlock Text="选择器类型"/>
+                                <datetime:LUCalendarDatePicker Type="Month" Margin="0,10,0,0"/>
+                                <datetime:LUCalendarDatePicker Type="Year" Margin="0,10,0,0"/>
                             </StackPanel>
                         </StackPanel>
                     </ScrollViewer>

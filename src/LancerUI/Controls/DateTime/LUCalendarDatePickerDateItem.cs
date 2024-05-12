@@ -12,6 +12,11 @@ namespace LancerUI.Controls.DateTime
     public class LUCalendarDatePickerDateItem : Control
     {
         /// <summary>
+        /// 选择器类型
+        /// </summary>
+        public LUCalendarDatePickerDateType PickerType { get => (LUCalendarDatePickerDateType)GetValue(PickerTypeProperty); set => SetValue(PickerTypeProperty, value); }
+        public static readonly DependencyProperty PickerTypeProperty = DependencyProperty.Register("PickerType", typeof(LUCalendarDatePickerDateType), typeof(LUCalendarDatePickerDateItem), new PropertyMetadata(LUCalendarDatePickerDateType.Day));
+        /// <summary>
         /// 选中日期
         /// </summary>
         public System.DateTime SelectedDate { get => (System.DateTime)GetValue(SelectedDateProperty); set => SetValue(SelectedDateProperty, value); }
@@ -126,11 +131,19 @@ namespace LancerUI.Controls.DateTime
             {
                 IsFirstDay = Date.Month == 1;
                 IsToday = Date.Year == System.DateTime.Now.Year && Date.Month == System.DateTime.Now.Month;
+                if(PickerType== LUCalendarDatePickerDateType.Month)
+                {
+                    IsSelected = Date.Year == SelectedDate.Year && Date.Month == SelectedDate.Month;
+                }
             }
             else
             {
                 IsVisibleDate = true;
                 IsToday = Date.Year == System.DateTime.Now.Year;
+                if (PickerType == LUCalendarDatePickerDateType.Year)
+                {
+                    IsSelected = Date.Year == SelectedDate.Year;
+                }
             }
         }
 

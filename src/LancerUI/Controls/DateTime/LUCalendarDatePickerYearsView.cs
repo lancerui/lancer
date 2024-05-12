@@ -21,7 +21,16 @@ namespace LancerUI.Controls.DateTime
         /// 可视区域日期改变事件
         /// </summary>
         public event PropertyChangedCallback OnVisibleDatePropertyChanged;
-
+        /// <summary>
+        /// 选择器类型
+        /// </summary>
+        public LUCalendarDatePickerDateType PickerType { get => (LUCalendarDatePickerDateType)GetValue(PickerTypeProperty); set => SetValue(PickerTypeProperty, value); }
+        public static readonly DependencyProperty PickerTypeProperty = DependencyProperty.Register("PickerType", typeof(LUCalendarDatePickerDateType), typeof(LUCalendarDatePickerYearsView), new PropertyMetadata(LUCalendarDatePickerDateType.Day));
+        /// <summary>
+        /// 当前选中日期
+        /// </summary>
+        public System.DateTime SelectedDate { get => (System.DateTime)GetValue(SelectedDateProperty); set => SetValue(SelectedDateProperty, value); }
+        public static readonly DependencyProperty SelectedDateProperty = DependencyProperty.Register("SelectedDate", typeof(System.DateTime), typeof(LUCalendarDatePickerYearsView), new PropertyMetadata(System.DateTime.Now.Date));
         public System.DateTime Date
         {
             get

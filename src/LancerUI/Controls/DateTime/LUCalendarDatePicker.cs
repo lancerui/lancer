@@ -28,6 +28,11 @@ namespace LancerUI.Controls.DateTime
         /// </summary>
         public DayOfWeek FirstDayOfWeek { get => (DayOfWeek)GetValue(FirstDayOfWeekProperty); set => SetValue(FirstDayOfWeekProperty, value); }
         public static readonly DependencyProperty FirstDayOfWeekProperty = DependencyProperty.Register("FirstDayOfWeek", typeof(DayOfWeek), typeof(LUCalendarDatePicker), new PropertyMetadata(DayOfWeek.Monday));
+        /// <summary>
+        /// 选择器类型
+        /// </summary>
+        public LUCalendarDatePickerDateType Type { get => (LUCalendarDatePickerDateType)GetValue(TypeProperty); set => SetValue(TypeProperty, value); }
+        public static readonly DependencyProperty TypeProperty = DependencyProperty.Register("Type", typeof(LUCalendarDatePickerDateType), typeof(LUCalendarDatePicker), new PropertyMetadata(LUCalendarDatePickerDateType.Day));
 
         private LUCalendarDatePickerDaysView _pickerDaysView;
         private LUButton _viewButton, _preBtn, _nextBtn;
@@ -52,27 +57,50 @@ namespace LancerUI.Controls.DateTime
         private void OnSelectYear(object sender, ExecutedRoutedEventArgs e)
         {
             var selected = (System.DateTime)e.Parameter;
-            //ShowMonthsView(selected);
-            //_pickerYearsView.Visibility = Visibility.Collapsed;
-            _pickerMonthsView.Visibility = Visibility.Visible;
-            _pickerMonthsView.Date = selected;
-            _pickerMonthsView.Init();
-            _currentDisplayType = LUCalendarDatePickerDateType.Month;
-            YearsToMonthsViewAnimation();
-            UpdateButtonDateText(selected);
+            var oldValue = SelectedDate;
+
+            if (Type == LUCalendarDatePickerDateType.Year)
+            {
+                SelectedDate = selected;
+                _pickerYearsView.SelectedDate = selected;
+                OnSelectedDateChanged?.Invoke(this, new DependencyPropertyChangedEventArgs(SelectedDateProperty, oldValue, SelectedDate));
+                UpdateButtonDateText(selected);
+            }
+            else
+            {
+                //ShowMonthsView(selected);
+                //_pickerYearsView.Visibility = Visibility.Collapsed;
+                _pickerMonthsView.Visibility = Visibility.Visible;
+                _pickerMonthsView.Date = selected;
+                _pickerMonthsView.Init();
+                _currentDisplayType = LUCalendarDatePickerDateType.Month;
+                YearsToMonthsViewAnimation();
+                UpdateButtonDateText(selected);
+            }
         }
 
         private void OnSelectMonth(object sender, ExecutedRoutedEventArgs e)
         {
             var selected = (System.DateTime)e.Parameter;
-            _pickerDaysView.Visibility = Visibility.Visible;
-            //_pickerMonthsView.Visibility = Visibility.Collapsed;
-            _pickerDaysView.Date = selected;
-            _pickerDaysView.Init();
-            _currentDisplayType = LUCalendarDatePickerDateType.Day;
-            //ShowDaysView(selected);
-            MonthsToDaysViewAnimation();
-            UpdateButtonDateText(selected);
+            var oldValue = SelectedDate;
+            if (Type == LUCalendarDatePickerDateType.Day)
+            {
+
+                _pickerDaysView.Visibility = Visibility.Visible;
+                //_pickerMonthsView.Visibility = Visibility.Collapsed;
+                _pickerDaysView.Date = selected;
+                _pickerDaysView.Init();
+                _currentDisplayType = LUCalendarDatePickerDateType.Day;
+                //ShowDaysView(selected);
+                MonthsToDaysViewAnimation();
+                UpdateButtonDateText(selected);
+            }
+            else if (Type == LUCalendarDatePickerDateType.Month)
+            {
+                SelectedDate = selected;
+                _pickerMonthsView.SelectedDate = selected;
+                OnSelectedDateChanged?.Invoke(this, new DependencyPropertyChangedEventArgs(SelectedDateProperty, oldValue, SelectedDate));
+            }
         }
 
         private void OnSelectDay(object sender, ExecutedRoutedEventArgs e)
@@ -147,7 +175,20 @@ namespace LancerUI.Controls.DateTime
 
         private void Init()
         {
-            ShowDaysView(SelectedDate);
+            if (Type == LUCalendarDatePickerDateType.Day)
+            {
+                ShowDaysView(SelectedDate);
+            }
+            else if (Type == LUCalendarDatePickerDateType.Month)
+            {
+                _pickerDaysView.Visibility = Visibility.Collapsed;
+                ShowMonthsView(SelectedDate);
+            }
+            else
+            {
+                _pickerDaysView.Visibility = Visibility.Collapsed;
+                ShowYearsView(SelectedDate);
+            }
         }
 
         private void ShowDaysView(System.DateTime date_)

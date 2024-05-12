@@ -50,7 +50,7 @@ TargetType="ListViewItem">
                         </ListView.Resources>
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <local:LUCalendarDatePickerDateGroup DisplayType="Year" VisibleDate="{Binding Path=VisibleDate,RelativeSource={RelativeSource AncestorType=local:LUCalendarDatePickerYearsView}}" Dates="{Binding}"/>
+                                <local:LUCalendarDatePickerDateGroup SelectedDate="{Binding Path=SelectedDate,RelativeSource={RelativeSource AncestorType=local:LUCalendarDatePickerYearsView}}" PickerType="{Binding Path=PickerType,RelativeSource={RelativeSource AncestorType=local:LUCalendarDatePickerYearsView}}" DisplayType="Year" VisibleDate="{Binding Path=VisibleDate,RelativeSource={RelativeSource AncestorType=local:LUCalendarDatePickerYearsView}}" Dates="{Binding}"/>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>

@@ -20,7 +20,7 @@
                                     <Border.Effect>
                                         <DropShadowEffect ShadowDepth="0" BlurRadius="10" Color="#000" Direction="0" Opacity=".1"/>
                                     </Border.Effect>
-                                    <local:LUCalendarDatePicker x:Name="PART_CalendarDatePicker"/>
+                                    <local:LUCalendarDatePicker x:Name="PART_CalendarDatePicker" Type="{TemplateBinding PickerType}"/>
                                 </Border>
                             </Popup>
                         </Grid>

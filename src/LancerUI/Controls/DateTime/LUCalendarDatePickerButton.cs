@@ -24,6 +24,12 @@ namespace LancerUI.Controls.DateTime
         /// </summary>
         public string Format { get => (string)GetValue(FormatProperty); set => SetValue(FormatProperty, value); }
         public static readonly DependencyProperty FormatProperty = DependencyProperty.Register("Format", typeof(string), typeof(LUCalendarDatePickerButton), new PropertyMetadata("yyyy-MM-dd"));
+        /// <summary>
+        /// 选择器类型
+        /// </summary>
+        public LUCalendarDatePickerDateType PickerType { get => (LUCalendarDatePickerDateType)GetValue(PickerTypeProperty); set => SetValue(PickerTypeProperty, value); }
+        public static readonly DependencyProperty PickerTypeProperty = DependencyProperty.Register("PickerType", typeof(LUCalendarDatePickerDateType), typeof(LUCalendarDatePickerButton), new PropertyMetadata(LUCalendarDatePickerDateType.Day));
+
         private LUButton _button;
         private Popup _popup;
         private LUCalendarDatePicker _calendar;
