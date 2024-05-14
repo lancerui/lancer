@@ -81,25 +81,14 @@ namespace LancerUI.Demo
             {
                 ColorBrush = new SolidColorBrush(Colors.SkyBlue),
                 Label = "使用时长",
-                Values = new double[] { 50, 3, 3, 4, 15, 2, 8 }
+                Values = new double[] { 65, 59, 90, 81, 56, 55, 40 }
             });
             ChartData.Add(new ChartItem()
             {
                 Label = "空闲",
-                Values = new double[] { 132, 2, 3, 4, 5, 6, 150 }
+                Values = new double[] { 28, 48, 40, 19, 96, 27, 100 }
             });
-            ChartData.Add(new ChartItem()
-            {
-                ColorBrush = new SolidColorBrush(Colors.Red),
-                Label = "AA",
-                Values = new double[] { 32, 23, 13, 4, 6, 30, 18 }
-            });
-            ChartData.Add(new ChartItem()
-            {
-                ColorBrush = new SolidColorBrush(Colors.Green),
-                Label = "BB",
-                Values = new double[] { 10, 90, 50, 2, 3, 3, 12 }
-            });
+           
             //ChartData.Add(new ChartItem()
             //{
             //    ColorBrush= new SolidColorBrush(Colors.SkyBlue),
