@@ -74,6 +74,10 @@ namespace LancerUI.Demo
         public Command HomeCommand { get; set; }
         public List<ChartItem> ChartData { get; set; } = new List<ChartItem>();
         public string[] ChartLabels { get; set; } = new string[] { "周一", "周二", "周三", "周四", "周五", "周六", "周日" };
+        public string BindingText1 { get; set; } = "String Text 字符串";
+        public int BindingText2 { get; set; } = 1234;
+        public double BindingText3 { get; set; } = 3.1415;
+        public bool BindingText4 { get; set; } = true;
         public MainWindow()
         {
             InitializeComponent();
@@ -88,7 +92,7 @@ namespace LancerUI.Demo
                 Label = "空闲",
                 Values = new double[] { 28, 48, 40, 19, 96, 27, 100 }
             });
-           
+
             //ChartData.Add(new ChartItem()
             //{
             //    ColorBrush= new SolidColorBrush(Colors.SkyBlue),

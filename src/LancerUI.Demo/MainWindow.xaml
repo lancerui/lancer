@@ -287,7 +287,7 @@
                                 <TextBlock Text="折线"/>
                                 <chart:LUChartLine Margin="0,10,0,0" Width="350" Height="253" Unit="小时" Data="{Binding ChartData}" Labels="{Binding ChartLabels}"/>
                                 <TextBlock Text="雷达" Margin="0,10,0,0"/>
-                                <chart:LUChartRadar Data="{Binding ChartData}" Labels="{Binding ChartLabels}" Margin="0,10,0,0" Width="280" Height="280"/>
+                                <chart:LUChartRadar Data="{Binding ChartData}" Labels="{Binding ChartLabels}" Margin="0,10,0,0" Width="280" Height="300" Size="180"/>
                             </StackPanel>
                             <StackPanel HorizontalAlignment="Left">
                                 <TextBlock Text="柱形"/>
@@ -321,6 +321,24 @@
                                 <TextBlock Text="选择器类型"/>
                                 <datetime:LUCalendarDatePicker Type="Month" Margin="0,10,0,0"/>
                                 <datetime:LUCalendarDatePicker Type="Year" Margin="0,10,0,0"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
+                <!--基础控件 Base Controls-->
+                <TabItem Header="基础控件 Base Controls">
+
+                    <ScrollViewer Padding="10">
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel HorizontalAlignment="Left">
+                                <TextBlock Text="绑定 string"/>
+                                <Base:BindingTextBlock Text="{Binding BindingText1}" Margin="0,10,0,0"/>
+                                <TextBlock Text="绑定 int" Margin="0,10,0,0"/>
+                                <Base:BindingTextBlock Text="{Binding BindingText2}" Margin="0,10,0,0"/>
+                                <TextBlock Text="绑定 double" Margin="0,10,0,0"/>
+                                <Base:BindingTextBlock Text="{Binding BindingText3}" Margin="0,10,0,0"/>
+                                <TextBlock Text="绑定 bool" Margin="0,10,0,0"/>
+                                <Base:BindingTextBlock Text="{Binding BindingText4}" Margin="0,10,0,0"/>
                             </StackPanel>
                         </StackPanel>
                     </ScrollViewer>

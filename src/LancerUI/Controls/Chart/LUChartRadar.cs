@@ -19,10 +19,22 @@ namespace LancerUI.Controls.Chart
     public class LUChartRadar : Control
     {
         /// <summary>
+        /// 雷达图大小
+        /// </summary>
+        public double Size { get => (double)GetValue(SizeProperty); set => SetValue(SizeProperty, value); }
+        public static readonly DependencyProperty SizeProperty = DependencyProperty.Register("Size", typeof(double), typeof(LUChartRadar), new PropertyMetadata(150.0,new PropertyChangedCallback(OnLadarPropertyChanged)));
+
+        private static void OnLadarPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var control = d as LUChartRadar;
+            control?.Draw();
+        }
+
+        /// <summary>
         /// 层数
         /// </summary>
         public int LayerCount { get => (int)GetValue(LayerCountProperty); set => SetValue(LayerCountProperty, value); }
-        public static readonly DependencyProperty LayerCountProperty = DependencyProperty.Register("LayerCount", typeof(int), typeof(LUChartRadar), new PropertyMetadata(5));
+        public static readonly DependencyProperty LayerCountProperty = DependencyProperty.Register("LayerCount", typeof(int), typeof(LUChartRadar), new PropertyMetadata(5, new PropertyChangedCallback(OnLadarPropertyChanged)));
 
         public SolidColorBrush GridLineBrush
         {
@@ -51,7 +63,7 @@ namespace LancerUI.Controls.Chart
             set { SetValue(DataProperty, value); }
         }
         public static readonly DependencyProperty DataProperty =
-            DependencyProperty.Register("Data", typeof(List<ChartItem>), typeof(LUChartRadar), new PropertyMetadata(null));
+            DependencyProperty.Register("Data", typeof(List<ChartItem>), typeof(LUChartRadar), new PropertyMetadata(null, new PropertyChangedCallback(OnLadarPropertyChanged)));
         public string SelectedPointValue
         {
             get { return (string)GetValue(SelectedPointValueProperty); }
@@ -105,13 +117,7 @@ namespace LancerUI.Controls.Chart
             _canvas = GetTemplateChild("PART_Canvas") as Canvas;
             _canvasBorder = GetTemplateChild("PART_CanvasBorder") as Border;
             _popup = GetTemplateChild("PART_Popup") as Popup;
-        }
-
-        protected override void OnRenderSizeChanged(SizeChangedInfo sizeInfo)
-        {
-            base.OnRenderSizeChanged(sizeInfo);
-            _canvas.Width = _canvasBorder.ActualWidth;
-            _canvas.Height = _canvasBorder.ActualHeight;
+            
             _canvas.RenderTransformOrigin = new Point(0.5, 0.5);
             _canvas.RenderTransform = new RotateTransform()
             {
@@ -119,8 +125,25 @@ namespace LancerUI.Controls.Chart
             };
             Draw();
         }
+
+        protected override void OnRenderSizeChanged(SizeChangedInfo sizeInfo)
+        {
+            base.OnRenderSizeChanged(sizeInfo);
+            //_canvas.Width = _canvasBorder.ActualWidth;
+            //_canvas.Height = _canvasBorder.ActualHeight;
+            //_canvas.RenderTransformOrigin = new Point(0.5, 0.5);
+            //_canvas.RenderTransform = new RotateTransform()
+            //{
+            //    Angle = -90
+            //};
+            //Draw();
+        }
         private void Draw()
         {
+            if (_canvas == null) return;
+
+            _canvas.Width = Size;
+            _canvas.Height = Size;
             _canvas.Children.Clear();
             UnBindingEvent();
             if (Data == null || Data.Count == 0 || Labels == null || Labels.Length == 0)
@@ -311,7 +334,7 @@ namespace LancerUI.Controls.Chart
                 x.MouseEnter -= dataPoint_MouseEnter;
                 x.MouseLeave -= dataPoint_MouseLeave;
             });
-           
+
         }
         private void dataPoint_MouseLeave(object sender, MouseEventArgs e)
         {
@@ -331,7 +354,7 @@ namespace LancerUI.Controls.Chart
             strokeBrush.Opacity = 0.3;
             responsePointArea.Stroke = strokeBrush;
             responsePointArea.StrokeThickness = responsePointArea.ActualWidth / 2;
-         
+
 
             SelectedPointValue = valueInfo.Value.ToString("0.#");
             SelectedPointLabel = valueInfo.Label;

@@ -31,5 +31,6 @@
         <ResourceDictionary Source="/LancerUI;component/Controls/DateTime/LUCalendarDatePickerMonthsView.xaml" />
         <ResourceDictionary Source="/LancerUI;component/Controls/DateTime/LUCalendarDatePickerYearsView.xaml" />
         <ResourceDictionary Source="/LancerUI;component/Controls/DateTime/LUCalendarDatePickerButton.xaml" />
+        <ResourceDictionary Source="/LancerUI;component/Controls/Base/BindingTextBlock.xaml" />
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
