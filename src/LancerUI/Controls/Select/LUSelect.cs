@@ -16,6 +16,7 @@ namespace LancerUI.Controls.Select
 {
     public class LUSelect : ItemsControl
     {
+        public event LUSelectEventHandler OnSelectedChanged;
         /// <summary>
         /// 当前选择的索引
         /// </summary>
@@ -84,6 +85,7 @@ namespace LancerUI.Controls.Select
             Loaded += LUSelect_Loaded;
         }
 
+
         private void LUSelect_Loaded(object sender, RoutedEventArgs e)
         {
             SetDefaultDisplayText();
@@ -123,6 +125,7 @@ namespace LancerUI.Controls.Select
             HandleButtonEvent();
             SetDisplayBinding();
             BindingEvent();
+            UpdateDisplayText();
         }
 
         private void BindingEvent()
@@ -212,6 +215,7 @@ namespace LancerUI.Controls.Select
             SelectedIndex = Items.IndexOf(SelectedItem);
 
             UpdateDisplayText();
+            OnSelectedChanged?.Invoke(this);
             Debug.WriteLine("当前选中：" + SelectedIndex + "," + SelectedItem);
         }
 
@@ -223,9 +227,13 @@ namespace LancerUI.Controls.Select
             }
             else
             {
-                if (SelectedItem != null && _displayText != null)
+                //if (SelectedItem != null && _displayText != null)
+                //{
+                //    _displayText.Text = (SelectedItem as LUSelectItem).Text;
+                //}
+                if (_displayText != null && SelectedIndex != -1 && Items != null && Items.Count > SelectedIndex)
                 {
-                    _displayText.Text = (SelectedItem as LUSelectItem).Text;
+                    _displayText.Text = (Items[SelectedIndex] as LUSelectItem).Text;
                 }
             }
         }
