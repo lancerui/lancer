@@ -22,7 +22,21 @@ namespace LancerUI.Controls.DateTime
         /// 当前选择日期
         /// </summary>
         public System.DateTime SelectedDate { get => (System.DateTime)GetValue(SelectedDateProperty); set => SetValue(SelectedDateProperty, value); }
-        public static readonly DependencyProperty SelectedDateProperty = DependencyProperty.Register("SelectedDate", typeof(System.DateTime), typeof(LUCalendarDatePicker), new PropertyMetadata(System.DateTime.Now.Date));
+        public static readonly DependencyProperty SelectedDateProperty = DependencyProperty.Register("SelectedDate", typeof(System.DateTime), typeof(LUCalendarDatePicker), new PropertyMetadata(System.DateTime.Now.Date, new PropertyChangedCallback(OnSelectedDatePropertyChanged)));
+
+        private static void OnSelectedDatePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var control = d as LUCalendarDatePicker;
+            if (e.OldValue != e.NewValue)
+            {
+                if(control._pickerDaysView != null)
+                {
+                    control._pickerDaysView.SelectedDate = (System.DateTime)e.NewValue;
+                }
+                control.Init();
+            }
+        }
+
         /// <summary>
         /// 一周的第一天
         /// </summary>
@@ -173,8 +187,10 @@ namespace LancerUI.Controls.DateTime
             UpdateButtonDateText(_visibleDate);
         }
 
-        private void Init()
+        public void Init()
         {
+            if (_pickerDaysView == null) return;
+
             if (Type == LUCalendarDatePickerDateType.Day)
             {
                 ShowDaysView(SelectedDate);

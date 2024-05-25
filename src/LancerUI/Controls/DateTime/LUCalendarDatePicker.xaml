@@ -42,7 +42,7 @@
                             <!--头部按钮 end-->
 
                             <!--日期选择 start-->
-                            <local:LUCalendarDatePickerDaysView x:Name="PART_PickerDaysView" FirstDayOfWeek="{TemplateBinding FirstDayOfWeek}" Grid.Row="1" RenderTransformOrigin="0.5,0.5">
+                            <local:LUCalendarDatePickerDaysView x:Name="PART_PickerDaysView" SelectedDate="{TemplateBinding SelectedDate}" FirstDayOfWeek="{TemplateBinding FirstDayOfWeek}" Grid.Row="1" RenderTransformOrigin="0.5,0.5">
                                 <local:LUCalendarDatePickerDaysView.RenderTransform>
                                     <ScaleTransform ScaleX="1" ScaleY="1" CenterX="0.5" CenterY="0.5"/>
                                 </local:LUCalendarDatePickerDaysView.RenderTransform>
