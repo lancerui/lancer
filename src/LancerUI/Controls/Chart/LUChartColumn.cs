@@ -56,7 +56,17 @@ namespace LancerUI.Controls.Chart
             set { SetValue(DataProperty, value); }
         }
         public static readonly DependencyProperty DataProperty =
-            DependencyProperty.Register("Data", typeof(List<ChartItem>), typeof(LUChartColumn), new PropertyMetadata(null));
+            DependencyProperty.Register("Data", typeof(List<ChartItem>), typeof(LUChartColumn), new PropertyMetadata(null, new PropertyChangedCallback(OnDataPropertyChanged)));
+
+        private static void OnDataPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var control = d as LUChartColumn;
+            if (e.NewValue != e.OldValue)
+            {
+                control.Draw();
+            }
+        }
+
         /// <summary>
         /// 标签
         /// </summary>
@@ -66,7 +76,7 @@ namespace LancerUI.Controls.Chart
             set { SetValue(LabelsProperty, value); }
         }
         public static readonly DependencyProperty LabelsProperty =
-            DependencyProperty.Register("Labels", typeof(string[]), typeof(LUChartColumn), new PropertyMetadata(null));
+            DependencyProperty.Register("Labels", typeof(string[]), typeof(LUChartColumn), new PropertyMetadata(null, new PropertyChangedCallback(OnDataPropertyChanged)));
         /// <summary>
         /// 数值单位
         /// </summary>
@@ -96,7 +106,7 @@ namespace LancerUI.Controls.Chart
             set { SetValue(DisplayTypeProperty, value); }
         }
         public static readonly DependencyProperty DisplayTypeProperty =
-            DependencyProperty.Register("DisplayType", typeof(ChartColumnType), typeof(LUChartColumn), new PropertyMetadata(ChartColumnType.Combine));
+            DependencyProperty.Register("DisplayType", typeof(ChartColumnType), typeof(LUChartColumn), new PropertyMetadata(ChartColumnType.Combine,new PropertyChangedCallback(OnDataPropertyChanged)));
         /// <summary>
         /// 刻度定位线颜色
         /// </summary>
@@ -141,6 +151,7 @@ namespace LancerUI.Controls.Chart
         private int _gridXLines;
         private double _columnMargin;
         private double _columnWidth;
+        private double _maxValue;
 
         private Line _scalePositionLine;
         private bool _isCanScalePositionLineMove = true;
@@ -192,6 +203,10 @@ namespace LancerUI.Controls.Chart
 
         private void Draw()
         {
+            if (_canvas != null)
+            {
+                _canvas.Children.Clear();
+            }
             if (_canvas == null || Data == null || Data.Count == 0) return;
 
             CalculateMaxValue();
@@ -218,7 +233,7 @@ namespace LancerUI.Controls.Chart
                     {
                         //var maxLengthValue = Data.OrderByDescending(x => x.Values.Max()).First().Values.Max().ToString();
                         var text = new TextBlock();
-                        text.Text = MaxValue.ToString();
+                        text.Text = _maxValue.ToString();
                         text.FontSize = 12;
                         //  计算midvaluetext的宽度
                         text.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
@@ -358,7 +373,7 @@ namespace LancerUI.Controls.Chart
             {
                 var text = new TextBlock
                 {
-                    Text = (MaxValue / (_gridXLines - 1) * i).ToString("0.#"),
+                    Text = (_maxValue / (_gridXLines - 1) * i).ToString("0.#"),
                     FontSize = 12,
                     Foreground = LabelsBrush
                 };
@@ -377,12 +392,10 @@ namespace LancerUI.Controls.Chart
             if (Data == null || Data.Count == 0) return;
 
             //  最大值处理
-
-            double maxValue = 0;
             if (DisplayType == ChartColumnType.Combine)
             {
                 //  合并样式
-                maxValue = Data.Max(x => x.Values.Max());
+                _maxValue = Data.Max(x => x.Values.Max());
             }
             else
             {
@@ -396,13 +409,13 @@ namespace LancerUI.Controls.Chart
                         values[j] += Data[i].Values[j];
                     }
                 }
-                maxValue = values.Max();
+                _maxValue = values.Max();
 
             }
 
-            if (MaxValue <= 0 || MaxValue < maxValue)
+            if (MaxValue > _maxValue)
             {
-                MaxValue = maxValue;
+                _maxValue = MaxValue;
             }
         }
         /// <summary>
@@ -551,7 +564,7 @@ namespace LancerUI.Controls.Chart
                     {
                         Fill = color,
                         Width = _columnWidth,
-                        Height = _drawCanvasHeight * value / MaxValue,
+                        Height = _drawCanvasHeight * value / _maxValue,
                     };
 
                     if (DisplayType == ChartColumnType.Stack)
@@ -675,7 +688,7 @@ namespace LancerUI.Controls.Chart
                 _scalePositionLine.SetValue(Canvas.TopProperty, y);
 
                 _scalePositionTextBorder.SetValue(Canvas.TopProperty, y);
-                _scalePositionText.Text = (MaxValue - (MaxValue / _drawCanvasHeight * y)).ToString("0.#");
+                _scalePositionText.Text = (_maxValue - (_maxValue / _drawCanvasHeight * y)).ToString("0.#");
             }
         }
     }

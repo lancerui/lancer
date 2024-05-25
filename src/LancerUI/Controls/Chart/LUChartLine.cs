@@ -52,14 +52,34 @@ namespace LancerUI.Controls.Chart
             set { SetValue(DataProperty, value); }
         }
         public static readonly DependencyProperty DataProperty =
-            DependencyProperty.Register("Data", typeof(List<ChartItem>), typeof(LUChartLine), new PropertyMetadata(null));
+            DependencyProperty.Register("Data", typeof(List<ChartItem>), typeof(LUChartLine), new PropertyMetadata(null, new PropertyChangedCallback(OnDataChanged)));
+
+        private static void OnDataChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var control = d as LUChartLine;
+            if (e.NewValue != e.OldValue)
+            {
+                control.Draw();
+            }
+        }
+
         public string[] Labels
         {
             get { return (string[])GetValue(LabelsProperty); }
             set { SetValue(LabelsProperty, value); }
         }
         public static readonly DependencyProperty LabelsProperty =
-            DependencyProperty.Register("Labels", typeof(string[]), typeof(LUChartLine), new PropertyMetadata(null));
+            DependencyProperty.Register("Labels", typeof(string[]), typeof(LUChartLine), new PropertyMetadata(null, new PropertyChangedCallback(OnLabelsChanged)));
+
+        private static void OnLabelsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var control = d as LUChartLine;
+            if (e.NewValue != e.OldValue)
+            {
+                control.Draw();
+            }
+        }
+
         public SolidColorBrush PositionLinesBrush
         {
             get { return (SolidColorBrush)GetValue(PositionLinesBrushProperty); }
@@ -123,25 +143,25 @@ namespace LancerUI.Controls.Chart
 
         private Border _yAxisBorder;
         private TextBlock _yAxisText;
+        private double _maxValue;
         public LUChartLine()
         {
             DefaultStyleKey = typeof(LUChartLine);
-            //Unloaded += LUChartLine_Unloaded;
+            //Loaded += LUChartLine_Loaded;
+            SizeChanged += LUChartLine_SizeChanged;
         }
 
-        //private void LUChartLine_Unloaded(object sender, RoutedEventArgs e)
-        //{
-        //    Unloaded -= LUChartLine_Unloaded;
-        //    UnBindingEvent();
-        //}
-
-        protected override void OnRenderSizeChanged(SizeChangedInfo sizeInfo)
+        private void LUChartLine_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            base.OnRenderSizeChanged(sizeInfo);
             _canvas.Width = _canvasBorder.ActualWidth;
             _canvas.Height = _canvasBorder.ActualHeight;
             Draw();
         }
+
+        //private void LUChartLine_Loaded(object sender, RoutedEventArgs e)
+        //{
+        //    Draw();
+        //}
 
         public override void OnApplyTemplate()
         {
@@ -173,8 +193,15 @@ namespace LancerUI.Controls.Chart
         }
         private void Draw()
         {
-            if (_canvas == null || Data == null || Data.Count == 0) return;
+            if (_canvas != null)
+            {
+                //  清除画布
+                _canvas.Children.Clear();
+            }
 
+
+            if (_canvas == null || Data == null || Data.Count == 0) return;
+           
             UnBindingEvent();
 
             //  计算绘制范围
@@ -184,6 +211,8 @@ namespace LancerUI.Controls.Chart
                 _drawStartX = 0;
                 _drawMaxX = _canvas.Width;
                 _drawMaxY = _canvas.Height;
+                _drawCanvasWidth= _canvas.Width;
+                _drawCanvasHeight= _canvas.Height;
             }
             else
             {
@@ -235,7 +264,11 @@ namespace LancerUI.Controls.Chart
             double maxValue = Data.Max(x => x.Values.Max());
             if (MaxValue <= 0 || MaxValue < maxValue)
             {
-                MaxValue = maxValue;
+                _maxValue = maxValue;
+            }
+            else
+            {
+                _maxValue = MaxValue;
             }
 
             //  计算Y轴网格线数
@@ -246,8 +279,7 @@ namespace LancerUI.Controls.Chart
                 _gridXLines++;
             }
 
-            //  清除画布
-            _canvas.Children.Clear();
+
             CreateYAxisTooltip();
             DrawGridLines();
             DrawDataLines();
@@ -382,7 +414,7 @@ namespace LancerUI.Controls.Chart
                 {
                     double value = Data[i].Values[j];
                     double x = j * margin + _drawStartX;
-                    double y = _drawCanvasHeight - (value / MaxValue * _drawCanvasHeight) + _drawStartY;
+                    double y = _drawCanvasHeight - (value / _maxValue * _drawCanvasHeight) + _drawStartY;
 
                     //  折线
                     line.Points.Add(new Point(x, y));
@@ -484,7 +516,7 @@ namespace LancerUI.Controls.Chart
         /// </summary>
         private void DrawLabels()
         {
-            if (Labels == null || Labels.Length == 0) return;
+            if (_canvas == null || Labels == null || Labels.Length == 0) return;
 
             double margin = _drawCanvasWidth / (Labels.Length - 1);
 
@@ -531,7 +563,7 @@ namespace LancerUI.Controls.Chart
             {
                 var text = new TextBlock
                 {
-                    Text = (MaxValue / (_gridXLines - 1) * i).ToString("0.#"),
+                    Text = (_maxValue / (_gridXLines - 1) * i).ToString("0.#"),
                     FontSize = 12,
                     Foreground = LabelsBrush
                 };
@@ -671,7 +703,7 @@ namespace LancerUI.Controls.Chart
                 responseXLine.SetValue(Canvas.TopProperty, y);
 
                 _yAxisBorder.SetValue(Canvas.TopProperty, y);
-                _yAxisText.Text = (MaxValue - (MaxValue / _drawCanvasHeight * y)).ToString("0.#");
+                _yAxisText.Text = (_maxValue - (_maxValue / _drawCanvasHeight * y)).ToString("0.#");
             }
 
 

@@ -63,11 +63,11 @@
                                 </Grid>
                             </Border>
                             <!--图例-->
-                            <Border x:Name="LegendBorder" Grid.Row="1" Margin="0,10,0,0">
-                                <ItemsControl ItemsSource="{TemplateBinding Data}">
+                            <Border x:Name="LegendBorder" Grid.Row="1" Height="25">
+                                <ItemsControl VerticalAlignment="Bottom" ItemsSource="{TemplateBinding Data}">
                                     <ItemsControl.Template>
                                         <ControlTemplate>
-                                            <ScrollViewer VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Hidden" utils:ScrollViewerHelper.ShiftWheelScrollsHorizontally="True">
+                                            <ScrollViewer VerticalAlignment="Bottom" VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Hidden" utils:ScrollViewerHelper.ShiftWheelScrollsHorizontally="True">
                                                 <ItemsPresenter/>
                                             </ScrollViewer>
                                         </ControlTemplate>
